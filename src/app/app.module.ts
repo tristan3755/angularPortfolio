@@ -7,6 +7,8 @@ import { AccueilComponent } from './accueil/accueil.component';
 import { QuiComponent } from './qui/qui.component';
 import { DescriptionComponent } from './description/description.component';
 import { MokupComponent } from './mokup/mokup.component';
+import { GridComponent } from './grid/grid.component';
+import { CompetenceComponent } from './competence/competence.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import { MokupComponent } from './mokup/mokup.component';
     AccueilComponent,
     QuiComponent,
     DescriptionComponent,
-    MokupComponent
+    MokupComponent,
+    GridComponent,
+    CompetenceComponent
   ],
   imports: [
     BrowserModule,
