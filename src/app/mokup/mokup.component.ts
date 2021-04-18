@@ -7,9 +7,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MokupComponent implements OnInit {
 
+  transition:any="ease 2s"
 
- 
-  constructor() { }
+  titre='Responsive Design'
+  constructor() { 
+    setInterval(() => {
+      this.titre='Code optimisé'
+    },3000 )
+    setInterval(() => {
+      this.titre='UX'
+    },6000 )
+    setInterval(() => {
+      this.titre='UI'
+    },9000 )
+    setInterval(() => {
+      this.titre='Responsive Design'
+    },12000 )
+  }
 
   ngOnInit(): void {
   }
