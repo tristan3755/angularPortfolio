@@ -30,13 +30,35 @@ section article:nth-child(1) p:nth-child(3){
     color: #CF2D1C;
   }
   section article:nth-child(2){
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    top:10px;
+    right: 10px;
+    height: 150px;
+}
+section article:nth-child(2) a{
+    text-decoration: none;
+    color: white;
+    font-size: 1.5vmin;
+    font-family: 'Nunito', sans-serif;
+    text-transform: uppercase;
+    opacity: 0.7;
+}
+section article:nth-child(2) a:hover{
+    opacity: 1;
+    cursor: pointer;
+}
+  section article:nth-child(3){
       position: absolute;
       left: 10px;
       bottom:20px;
       width: 50px;
       height: 200px;
   }
-  section article:nth-child(3){
+  section article:nth-child(4){
     position: absolute;
     display: flex;
     flex-direction: row;
@@ -45,23 +67,23 @@ section article:nth-child(1) p:nth-child(3){
     right: 10px;
     bottom:10px;
 }
-section article:nth-child(3) p{
+section article:nth-child(4) p{
 color: white;
 margin: 10px;
-font-size: 2.5  vmin;
+font-size: 2.5vmin;
 font-family: 'Nunito', sans-serif;
 }
-section article:nth-child(3) p:nth-child(1){
+section article:nth-child(4) p:nth-child(1){
     color:#2ECC71;
 }
-section article:nth-child(4){
+section article:nth-child(5){
     height: 60vh;
     width: 400px;
     max-width: 60%; 
     animation: tourne linear infinite 10s;  
 }
 @media(max-width:450px){
-    section article:nth-child(4){
+    section article:nth-child(5){
         height: 30vh;
 } 
 }

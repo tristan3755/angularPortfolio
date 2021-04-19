@@ -9,12 +9,22 @@ article{
 }
 div{
     position: relative;
+    transition: ease-in-out 0.5s;
 }
+div:hover{
+transform: scaleY(1.05);
+z-index: 2;
+border-radius:5px;
+}
+div:hover img{
+    border-radius:5px;
+    }
 img{
     position: absolute;
     height: 100%;
     width: 100%;
     object-fit: cover;
+    transition: ease-in-out 0.5s;
 }
 section article:nth-child(1){
     min-height: 40vh;
@@ -53,4 +63,34 @@ section article:nth-child(3){
     display: grid;
     grid-template-columns: 2fr  2fr;
     grid-gap: 2px;
+}
+@media(max-width:810px){
+    section article:nth-child(1){
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;   
+        width: 100%;
+        margin-bottom: 2px;
+    }
+    section article:nth-child(2){
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;   
+        width: 100%;
+        margin-bottom: 2px;
+    }
+    section article:nth-child(3){
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;   
+        width: 100%;
+    }
+    div{
+        width: 90%;
+        height: 200px;
+        margin-bottom: 2px;
+    }
 }
