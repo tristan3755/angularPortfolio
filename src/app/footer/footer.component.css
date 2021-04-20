@@ -12,7 +12,11 @@ footer{
 footer article:nth-child(1){
 position: absolute;
 top:0;
-width: 40%;
+width: 100%;
+display: flex;
+flex-direction: row;
+align-items: center;
+justify-content: center;
 }
 footer article:nth-child(2){
     min-height: 20vh;

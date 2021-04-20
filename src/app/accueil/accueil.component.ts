@@ -7,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AccueilComponent implements OnInit {
 
+  menu=false
+
   constructor() { }
 
   ngOnInit(): void {
   }
+getMenu(){
+  this.menu=true
+}
+getMenuOff(){
+  this.menu=false
+}
 
 }
