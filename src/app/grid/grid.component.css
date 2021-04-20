@@ -1,5 +1,4 @@
 section{
-
     width: 100%;
     min-height: 100vh;
 }
@@ -36,11 +35,11 @@ section article:nth-child(1){
 }
 /************************grid2*************************/
 section article:nth-child(2){
-    min-height: 40vh;
+    min-height: 50vh;
     width: 100%;
     background-color:transparent;
     display: grid;
-    grid-template-columns: 2fr 1.5fr 2fr;
+    grid-template-columns: 1.8fr  1fr;
     grid-gap: 2px;
 }
 .svg{
@@ -57,7 +56,7 @@ section article:nth-child(2){
 }
 /*******************grid3*********************/
 section article:nth-child(3){
-    min-height: 40vh;
+    min-height: 50vh;
     width: 100%;
     background-color:transparent;
     display: grid;
