@@ -10,6 +10,7 @@ import { MokupComponent } from './mokup/mokup.component';
 import { GridComponent } from './grid/grid.component';
 import { CompetenceComponent } from './competence/competence.component';
 import { SkillsComponent } from './skills/skills.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { SkillsComponent } from './skills/skills.component';
     MokupComponent,
     GridComponent,
     CompetenceComponent,
-    SkillsComponent
+    SkillsComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
