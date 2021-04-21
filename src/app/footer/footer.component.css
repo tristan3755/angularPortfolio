@@ -7,7 +7,7 @@ footer{
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: center;
 }
 footer article:nth-child(1){
 position: absolute;
@@ -20,7 +20,7 @@ justify-content: center;
 }
 footer article:nth-child(2){
     min-height: 20vh;
-    width: 50%;
+    width: 70%;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -67,4 +67,9 @@ a{
     text-decoration: none;
     color: white;
     font-family: 'Nunito', sans-serif;
+}
+.france{
+    width: 300px;
+    max-width: 100%;
+    height: 300px;
 }
