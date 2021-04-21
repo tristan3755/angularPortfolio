@@ -20,10 +20,10 @@ section article:nth-child(1){
 }
 section article:nth-child(2){
   position: absolute;
-  width: 50%;
-  height: 110vh;
-  bottom: 20px;
-  left: 20px;
+  width: 30%;
+  height: 60vh;
+  bottom: 150px;
+  left: 150px;
   animation: tourne linear infinite 5s;
 }
 

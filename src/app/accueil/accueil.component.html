@@ -88,9 +88,9 @@
   <article  [class.menuOn]="menu===true" [class.menuOff]="menu===false">
     <i class="far fa-times-circle" id="cross" (click)="getMenuOff()"></i>
     <form>
-    <input type="text" required placeholder="votre nom et prénom">
-    <input type="email" required placeholder="exemple@gmail.com">
-    <textarea required type="text" placeholder="rédigez votre mail ici"></textarea>
+    <input type="text" name="nom" required placeholder="votre nom et prénom">
+    <input type="email" name="mail" required placeholder="exemple@gmail.com">
+    <textarea required type="text" name="text" placeholder="rédigez votre mail ici"></textarea>
     <button type="submit"><span></span><span></span>Envoyer</button>
   </form>
   </article>

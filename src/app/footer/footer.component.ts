@@ -7,13 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
+  ville=false
+
   constructor() { }
 
   ngOnInit(): void {
   }
-
-  getVille(){
-    console.log('salut')
+getVille(){
+    this.ville=true
   }
+  getVilleOff(){
+    this.ville=false
 
+  }
 }
