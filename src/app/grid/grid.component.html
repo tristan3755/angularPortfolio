@@ -2,10 +2,10 @@
     <article><div><a href="../../assets/sitesPortfolio/anim/index.html" target="_blank"><img [src]="image1"></a></div><div><a href="../../assets/sitesPortfolio/integration web/index.html" target="_blank"><img [src]="image2"></a></div><div><a href="../../assets/sitesPortfolio/batiment/index.html" target="_blank"><img [src]="image3"></a></div></article>
     <article><div>  <video
         preload="auto"
-        loading="lazy"
+         loading="lazy" 
         playsinline
-        muted
         autoplay
+        onloadedmetadata="this.muted = true"
         loop
         poster=""
         id="sun"

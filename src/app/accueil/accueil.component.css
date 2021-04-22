@@ -42,7 +42,7 @@ section article:nth-child(1) p:nth-child(3){
 section article:nth-child(2) a{
     text-decoration: none;
     color: white;
-    font-size: 1.5vmin;
+    font-size: 1.8vmin;
     font-family: 'Nunito', sans-serif;
     text-transform: uppercase;
     opacity: 0.7;
@@ -70,11 +70,12 @@ section article:nth-child(2) a:hover{
 section article:nth-child(4) p{
 color: white;
 margin: 10px;
-font-size: 2.5vmin;
+font-size: 3vmin;
 font-family: 'Nunito', sans-serif;
 }
 section article:nth-child(4) p:nth-child(1){
     color:#2ECC71;
+    font-size: 3vmin;
 }
 section article:nth-child(5){
     height: 60vh;
@@ -133,7 +134,7 @@ display: none;
     height: 100%;
     width: 2px;
     background-color: white;
-    left: 100px;
+    left: 80px;
     opacity: 0.8;
 }
 .border2{
@@ -141,7 +142,7 @@ display: none;
     height: 2px;
     width: 100%;
     background-color: white;
-    bottom: 100px;
+    bottom: 80px;
     opacity: 0.8;
 }
 @media(max-width:500px){
@@ -154,7 +155,7 @@ display: none;
 }
 .savoir{
     color: white;
-    font-size: 2.5vmin;
+    font-size: 2.7vmin;
     font-family: 'Nunito', sans-serif;
     width: 700px;
     max-width: 60%;
