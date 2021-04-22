@@ -175,4 +175,7 @@ display: none;
         max-width: 77%;
        margin-left: 15px;
     }
+    section article:nth-child(1) p{
+        font-size: 3.5vmin;
+    }
 }

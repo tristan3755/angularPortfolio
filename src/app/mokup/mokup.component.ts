@@ -7,9 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MokupComponent implements OnInit {
 
-  transition:any="ease 2s"
+  
+titre='Responsive Design'
 
-  titre='Responsive Design'
   constructor() { 
     setInterval(() => {
       this.titre='Code optimisé'
