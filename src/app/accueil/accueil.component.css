@@ -158,7 +158,7 @@ display: none;
     font-size: 2.7vmin;
     font-family: 'Nunito', sans-serif;
     width: 700px;
-    max-width: 60%;
+    max-width: 70%;
     height: auto;
     letter-spacing: 3px;
     animation: fade linear forwards 4s;
@@ -169,4 +169,10 @@ display: none;
         opacity: 1;
     }
 }
-
+@media(max-width:450px){
+    .savoir{
+        font-size: 3.2vmin;
+        max-width: 77%;
+       margin-left: 15px;
+    }
+}

@@ -40,6 +40,7 @@ section article:nth-child(1) div:nth-child(2){
     align-items: center;
     justify-content: center;
     position: relative;
+    z-index: 1;
  }section article:nth-child(1) div:nth-child(2)>*{
      font-size: 4vmin;
      font-family: 'Nunito', sans-serif;
@@ -61,8 +62,7 @@ section article:nth-child(1) div:nth-child(2){
 color: #111213;
     }
 }
- section article:nth-child(3){
-     
+ section article:nth-child(3){   
     width: 600px;
     max-width: 80%;
     height: 70vh; 
@@ -73,8 +73,10 @@ color: #111213;
     background-position: left;
     background-size:50%;
     background-repeat: no-repeat;
-    background-attachment: fixed;   
+    background-attachment: fixed;  
+    overflow: hidden; 
 }
+
 section article:nth-child(4){
     width: 600px;
     max-width: 80%;
@@ -89,17 +91,31 @@ section article:nth-child(4){
     background-attachment: fixed;
 }
 @media(max-width:500px){
+  section{
+      height: 80vh;
+  }
+
+    section article:nth-child(3){   
+        background-image: url('../../assets/images/mobile.jpg');
+        background-size:contain;
+        background-repeat: no-repeat;
+        background-attachment: initial;
+        top: 0;
+        left: 0;
+        height: 40vh;
+    }
+    
+    section article:nth-child(4){
+        background-image: url('../../assets/images/ordi.jpg');
+       background-size:contain;
+        background-repeat: no-repeat;
+        background-attachment: initial;
+        bottom: 0;
+        right: 0;
+        height: 40vh;
+    }
     section article:nth-child(2){
         animation: none;
     }
-    section article:nth-child(3){
-        top:20px;
-        left:20px;
-        background-size:100%;
-    }
-    section article:nth-child(4){
-        bottom:20px;
-        right:20px;
-        background-size:100%;
-    }
+
 }
