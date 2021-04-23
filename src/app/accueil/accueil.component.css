@@ -171,11 +171,14 @@ display: none;
 }
 @media(max-width:450px){
     .savoir{
-        font-size: 3.2vmin;
+        font-size: 3.5vmin;
         max-width: 77%;
        margin-left: 15px;
     }
     section article:nth-child(1) p{
         font-size: 3.5vmin;
+    }
+    section article:nth-child(2) a{
+        font-size: 2.8vmin;
     }
 }

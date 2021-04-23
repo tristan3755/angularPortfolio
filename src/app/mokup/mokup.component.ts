@@ -13,16 +13,21 @@ titre='Responsive Design'
   constructor() { 
     setInterval(() => {
       this.titre='Code optimisé'
-    },3000 )
+      console.log(this.titre)
+    },8000 )
     setInterval(() => {
       this.titre='UX'
-    },6000 )
+      console.log(this.titre)
+    },11000 )
     setInterval(() => {
       this.titre='UI'
-    },9000 )
+      console.log(this.titre)
+    },15000 )
     setInterval(() => {
       this.titre='Responsive Design'
-    },12000 )
+      console.log(this.titre)
+    },20000 )
+    
   }
 
   ngOnInit(): void {

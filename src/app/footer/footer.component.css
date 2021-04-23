@@ -70,12 +70,12 @@ a{
     font-size: 2vmin;
 }
 @media(max-width:450px){
-    a{
-        font-size: 3vmin;
+    a,p{
+        font-size: 4vmin;
     }
-    #icon{
+    #icon,i{
        
-        font-size: 4.5vmin;
+        font-size: 5.5vmin;
     }
 }
 .france{
@@ -108,4 +108,22 @@ a{
 .nancyOn{
     opacity: 1;
     transition:ease-in-out 1s;
+}
+/**************************btnSv********************************/
+
+.btnSvg{
+    width: 80px;
+    height: 80px;
+    animation: tourneBtn infinite 3s;
+}
+@keyframes tourneBtn{
+    0%{
+        transform: rotate(0deg);
+    }35%{
+        transform: rotate(-30deg);
+    }80%{
+        transform: rotate(30deg);
+    }100%{
+        transform: rotate(0deg);
+    }
 }
