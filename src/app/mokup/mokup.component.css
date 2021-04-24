@@ -18,6 +18,7 @@ section article:nth-child(1){
         transform: rotate(360deg);
     }
 }
+
 section article:nth-child(2){
   position: absolute;
   width: 30%;
@@ -74,7 +75,6 @@ color: #111213;
     background-size:50%;
     background-repeat: no-repeat;
     background-attachment: fixed;  
-    overflow: hidden; 
 }
 
 section article:nth-child(4){
