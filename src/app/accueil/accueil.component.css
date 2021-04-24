@@ -194,7 +194,7 @@ display: none;
     max-width: 70%;
     height: auto;
     letter-spacing: 3px;
-    animation: fade linear forwards 4s;
+    animation: fade linear forwards 8s;
     opacity: 0;
 }
 @keyframes fade{
