@@ -7,12 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GridComponent implements OnInit {
 image1:any='../../assets/images/community.jpg'
-image2:any='../../assets/images/liberty.jpg'
+image2:any='../../assets/images/organiz.jpg'
 image3:any='../../assets/images/gantColor.jpg'
 image4:any='../../assets/images/the.jpg'
 video:any='../../assets/images/sun.mp4'
 image5:any='../../assets/images/meteo.jpg'
-image6:any='../../assets/images/organiz.jpg'
+image6:any='../../assets/images/solaris.jpg'
   constructor() { }
 
   ngOnInit(): void {
