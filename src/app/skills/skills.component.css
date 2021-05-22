@@ -38,12 +38,7 @@ img{
     object-fit: cover;
     border-radius: 50%;
 }
-section article div:nth-child(5) img{
-    object-fit: contain;
-}
-section article div:nth-child(8) img{
-    object-fit: contain;
-}
+
 section article div:nth-child(1) {
     animation: move linear infinite 10s;
 }
