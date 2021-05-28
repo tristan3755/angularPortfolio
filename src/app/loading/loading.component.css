@@ -1,0 +1,60 @@
+#gauche{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 50vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    background-color: #111213;
+    z-index: 20;
+    border-bottom: white 1.5px solid;
+    animation: gauche linear forwards 3s;
+}
+#gauche article{
+   height: 20vh;
+   width: 20%;
+   margin-left: 15%;
+}
+#droite{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 50vh;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    background-color: #111213;
+    z-index: 20;
+    border-top: white 1.5px solid;
+    animation: droite linear forwards 3s;
+}
+#droite article{
+    height: 20vh;
+    width: 20%;
+    position: absolute;
+    right: 15%;
+ }
+
+@keyframes gauche{
+    0%{
+        transform: translateX(0%);
+    }
+50%{
+    transform: translateX(0%);
+}100%{
+    transform: translateX(-100%); 
+    display: none; 
+}
+}
+@keyframes droite{
+    0%{
+        transform: translateX(0%);
+    }
+50%{
+    transform: translateX(0%);
+}100%{
+    transform: translateX(100%); 
+    display: none; 
+}
+}

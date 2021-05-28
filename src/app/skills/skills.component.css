@@ -62,6 +62,7 @@ section article div:nth-child(7) {
 }
 section article div:nth-child(8) {
     animation: move linear infinite 20s;
+    
 }
 section article div:nth-child(9) {
     animation: move linear infinite 6s;

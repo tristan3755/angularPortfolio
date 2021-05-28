@@ -11,6 +11,7 @@ import { GridComponent } from './grid/grid.component';
 import { CompetenceComponent } from './competence/competence.component';
 import { SkillsComponent } from './skills/skills.component';
 import { FooterComponent } from './footer/footer.component';
+import { LoadingComponent } from './loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { FooterComponent } from './footer/footer.component';
     GridComponent,
     CompetenceComponent,
     SkillsComponent,
-    FooterComponent
+    FooterComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,
