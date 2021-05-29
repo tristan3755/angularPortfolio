@@ -9,7 +9,7 @@
     background-color: #111213;
     z-index: 20;
     border-bottom: white 1.5px solid;
-    animation: gauche linear forwards 3s;
+    animation: gauche linear forwards 2s;
 }
 #gauche article{
    height: 20vh;
@@ -27,7 +27,7 @@
     background-color: #111213;
     z-index: 20;
     border-top: white 1.5px solid;
-    animation: droite linear forwards 3s;
+    animation: droite linear forwards 2s;
 }
 #droite article{
     height: 20vh;
