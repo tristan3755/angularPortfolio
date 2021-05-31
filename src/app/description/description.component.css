@@ -6,7 +6,7 @@ section{
 }
 section article:nth-child(1){
     position: relative;
-    background-color: white;
+    background-color: whitesmoke;
     min-height: 40vh;
     width: 70%;
     display: flex;
@@ -19,6 +19,7 @@ h1{
     color: black;
     font-size: 4.2vmin;
     width: 50%;
+    text-align: center;
 }
 div{
     width: 20%;
@@ -29,6 +30,7 @@ section article:nth-child(1) p{
     color: black;
     font-size: 3.5vmin;
     width: 50%;
+    
 }
 section article:nth-child(2){
     position: relative;

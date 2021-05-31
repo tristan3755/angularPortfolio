@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MokupComponent } from './mokup.component';
+import { UxComponent } from './ux.component';
 
-describe('MokupComponent', () => {
-  let component: MokupComponent;
-  let fixture: ComponentFixture<MokupComponent>;
+describe('UxComponent', () => {
+  let component: UxComponent;
+  let fixture: ComponentFixture<UxComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MokupComponent ]
+      declarations: [ UxComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MokupComponent);
+    fixture = TestBed.createComponent(UxComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
