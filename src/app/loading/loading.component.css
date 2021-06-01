@@ -59,12 +59,12 @@
 }
 @media(max-width:500px){
     #gauche article{
-     
+        height: 200px;
         width: 150px;
         margin-left: 15%;
      }
      #droite article{
-       
+        height: 200px;
         width: 150px;
         margin-left: 15%;
      }
