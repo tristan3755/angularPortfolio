@@ -101,6 +101,6 @@ opacity: 0.7;
 }
 @media(max-width:500px){
     p{
-        font-size: 3vmin;
-        }
+        font-size: 4vmin;
+    }
 }

@@ -44,3 +44,11 @@ img{
     width: 100%;
     object-fit: contain;
 }
+@media(max-width:500px){
+    section article:nth-child(1) p{
+    
+        font-size: 4vmin;  
+        width: 80%;
+        
+    }
+}
