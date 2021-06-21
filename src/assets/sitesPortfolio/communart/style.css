@@ -546,8 +546,8 @@ background-image: url('./images/fermeture.png');
 background-position: center;
 background-size: contain;
 background-repeat: no-repeat;
-width: 15%;
-height: 15%;
+width: 80px;
+height: 80px;
 transition: ease-in-out 0.5s;
 display: flex;
 flex-direction: column;
@@ -678,8 +678,8 @@ transform: translateY(0);
 #navMobile{
   display: none;
   position: fixed;
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
   bottom: 0;
   right: 10px;
   z-index: 10;
@@ -693,24 +693,24 @@ transform: translateY(0);
   bottom: 20vh;
   right: 10px;
   height: 0vh;
-  width: 100px;
+  width: 80px;
   z-index: 10;
   opacity: 0;
   animation: show linear forwards 1s;
 }
 @keyframes show{
   to{
-    height: 80vh;
+    height: 60vh;
     opacity: 1;
   }
 }
 #menuMobile div{
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
 }
 #menuMobile a{
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
 }
 @media(max-width:600px){
   #nav{
