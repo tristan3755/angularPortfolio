@@ -2,8 +2,9 @@ document.documentElement.addEventListener("mousemove", (e) => {
     document.documentElement.style.setProperty("--x", e.clientX + "px");
     document.documentElement.style.setProperty("--y", e.clientY + "px");
   });
+  
   let monInscription = document.getElementById("sect1");
-  let monBlocInscription = document.createElement("section");
+  let monBlocInscription = document.createElement("form");
   monBlocInscription.style.position="fixed"
   monBlocInscription.style.zIndex="10"
   monBlocInscription.classList = "blocInscription";
@@ -13,6 +14,7 @@ document.documentElement.addEventListener("mousemove", (e) => {
   
   let inputInscription = document.createElement("input");
   inputInscription.type = "text";
+  inputInscription.id="mailUsers"
   inputInscription.placeholder = "username";
   
   inputInscription.addEventListener("click", () => {
@@ -21,18 +23,27 @@ document.documentElement.addEventListener("mousemove", (e) => {
   
   let inputPassword = document.createElement("input");
   inputPassword.type = "password";
+  inputPassword.id='password'
   inputPassword.placeholder = "mot de passe";
   
   inputPassword.addEventListener("click", () => {
     inputPassword.style.width = "500px";
   });
+
+  let inputFichier = document.createElement("input");
+  inputFichier.type = "file";
+  inputFichier.id="image"
+  inputFichier.accept="image/png, image/jpeg,image/jpg"
   
-  let validation = document.createElement("p");
+  let validation = document.createElement("button");
   validation.className = "boutonInscriptionFormulaire";
-  validation.innerHTML = "s'inscrire";
+  validation.type='submit'
+  validation.innerHTML='s\'inscrire'
+  
   
   monBlocInscription.appendChild(inputInscription);
   monBlocInscription.appendChild(inputPassword);
+  monBlocInscription.appendChild(inputFichier);
   monBlocInscription.appendChild(validation);
   
   monBlocInscription.appendChild(bontonFermeture);
@@ -51,7 +62,7 @@ document.documentElement.addEventListener("mousemove", (e) => {
   let monBlocCo = document.createElement("section");
   monBlocCo.style.position="fixed"
   monBlocCo.style.zIndex="10"
-  monBlocCo.classList = "blocInscription";
+  monBlocCo.classList = "blocConnexion";
   let bontonFermetureCo = document.createElement("div");
   bontonFermetureCo.classList = "bontonFermeture";
   
@@ -72,7 +83,7 @@ document.documentElement.addEventListener("mousemove", (e) => {
   });
   
   let validationCo = document.createElement("p");
-  validationCo.className = "boutonInscriptionFormulaire";
+  validationCo.className = "boutonCoFormulaire";
   validationCo.innerHTML = "connexion";
   
   monBlocCo.appendChild(inputCo);
