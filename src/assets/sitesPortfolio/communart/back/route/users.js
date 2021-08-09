@@ -13,11 +13,16 @@ router.post('/inscription',multer,(req,res)=>{
            mailUsers:req.body.mailUsers,
            image:`${req.protocol}://${req.get('host')}/imageProfils/${req.file.filename}`
        })
-       newUser.save((data)=>{
-        res.status(200).json({code:200,message:'utilisateur ajouté :'+data})
-       })/*.catch((err)=>{
-        res.status(500).json({code:500,message:'problème :'+err})
-       })*/
+      
+       newUser.save((err,data)=>{
+      
+            if(!err){
+            res.status(200).json({code:200,message:'utilisateur ajouté :'+data})
+            }else{
+            res.status(500).json({code:500,message:'problème',utilisateurAjoutéEchec:err})
+            }
+       })
+    
    }
    )
 })

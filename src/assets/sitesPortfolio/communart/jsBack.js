@@ -1,4 +1,3 @@
-
 let token = ""
 let userId = ""
 
@@ -79,10 +78,30 @@ validation.addEventListener('click',(e)=>{
     formData.append('image',image.files[0])
 
     /*console.log(formData.get('mailUsers'))*/
-
+if(inputPassword.value==inputPasswordVerif.value){
    fetch(urlInscription,{method:'post',body:formData})
     .then((res)=>res.json())
-    .catch()
+    .then((res)=>{
+        if(res.code!==200){
+            let error=document.createElement('p')
+            error.innerHTML='utilisateur existe déja'
+            error.style.position="absolute"
+            error.style.bottom='10px'
+            error.style.color='#893142'
+            monBlocInscription.appendChild(error)
 
+        }else{
+            monBlocInscription.style.display='none'
+        }
+    })
+    .catch()
+}else{
+    let errorPass=document.createElement('p')
+    errorPass.innerHTML='mauvaise concordance des mots de passe'
+    errorPass.style.position="absolute"
+    errorPass.style.bottom='10px'
+    errorPass.style.color='#893142'
+    monBlocInscription.appendChild(errorPass)
+}
 })
 

@@ -13,9 +13,10 @@ document.documentElement.addEventListener("mousemove", (e) => {
  
   
   let inputInscription = document.createElement("input");
-  inputInscription.type = "text";
+  inputInscription.type = "email";
   inputInscription.id="mailUsers"
-  inputInscription.placeholder = "username";
+  inputInscription.required=true
+  inputInscription.placeholder = "votre mail qui servira d'identifiant";
   
   inputInscription.addEventListener("click", () => {
     inputInscription.style.width = "500px";
@@ -24,7 +25,14 @@ document.documentElement.addEventListener("mousemove", (e) => {
   let inputPassword = document.createElement("input");
   inputPassword.type = "password";
   inputPassword.id='password'
+  inputPassword.required=true
   inputPassword.placeholder = "mot de passe";
+
+  let inputPasswordVerif = document.createElement("input");
+  inputPasswordVerif.type = "password";
+  inputPasswordVerif.id='passwordVerif'
+  inputPasswordVerif.required=true
+  inputPasswordVerif.placeholder = "concordance du mot de passe";
   
   inputPassword.addEventListener("click", () => {
     inputPassword.style.width = "500px";
@@ -43,6 +51,7 @@ document.documentElement.addEventListener("mousemove", (e) => {
   
   monBlocInscription.appendChild(inputInscription);
   monBlocInscription.appendChild(inputPassword);
+  monBlocInscription.appendChild(inputPasswordVerif);
   monBlocInscription.appendChild(inputFichier);
   monBlocInscription.appendChild(validation);
   
