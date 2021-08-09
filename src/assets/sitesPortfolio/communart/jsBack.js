@@ -92,6 +92,7 @@ if(inputPassword.value==inputPasswordVerif.value){
 
         }else{
             monBlocInscription.style.display='none'
+            monBlocCo.style.display='flex'
         }
     })
     .catch()

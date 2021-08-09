@@ -42,16 +42,24 @@ document.documentElement.addEventListener("mousemove", (e) => {
   inputFichier.type = "file";
   inputFichier.id="image"
   inputFichier.accept="image/png, image/jpeg,image/jpg"
+  inputFichier.label='votre image de profil'
   
+  let label=document.createElement('p')
+  label.innerHTML='téléchargez votre image de profil ici'
+  label.style.fontFamily="'Raleway', sans-serif"
+  label.style.color="white"
+
   let validation = document.createElement("button");
   validation.className = "boutonInscriptionFormulaire";
   validation.type='submit'
   validation.innerHTML='s\'inscrire'
+  validation.style.border="none"
   
   
   monBlocInscription.appendChild(inputInscription);
   monBlocInscription.appendChild(inputPassword);
   monBlocInscription.appendChild(inputPasswordVerif);
+  monBlocInscription.appendChild(label)
   monBlocInscription.appendChild(inputFichier);
   monBlocInscription.appendChild(validation);
   
