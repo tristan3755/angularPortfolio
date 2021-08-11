@@ -7,12 +7,12 @@ const path=require('path')
 const fs=require('fs')
 
 
-router.post('/article/add',auth,multer,(req, res, next) => {
+router.post('/article/add',auth,multer,(req, res) => {
 
     const newArticle = new articleSchema({
         titre: req.body.titre,
         text: req.body.text,
-        date:req.body.date,
+        idUser:req.body.idUser,
         categorie:req.body.categorie,
         auteur:req.body.auteur,
         image:`${req.protocol}://${req.get('host')}/images/${req.file.filename}`

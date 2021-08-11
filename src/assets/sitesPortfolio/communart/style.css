@@ -794,7 +794,8 @@ transform: translateY(0);
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-evenly;
-  /*display: none;*/
+  display: none;
+  animation: inscription linear forwards 1s;
 }
 #dashBoard div{
   width: 500px;
@@ -807,4 +808,18 @@ transform: translateY(0);
 #dashBoard div:hover{
 cursor: pointer;
 transform: scale(1.1);
+}
+@media(max-width:1100px){
+  #dashBoard div{
+    height: 20vh;
+    margin: 10px;
+  }
+}
+/*deco*/
+.deco:hover{
+  cursor: pointer;
+}
+/*gestionMobile*/
+#gestionConnect{
+  display: none;
 }

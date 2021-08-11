@@ -5,10 +5,6 @@ const articleSchema=mongoose.Schema({
         type:String,
         require:true,
     },
-    date:{
-        type:String,
-        require:true,
-    },
     text:{
         type:String,
         require:true,
@@ -23,6 +19,10 @@ const articleSchema=mongoose.Schema({
     },
     image:{
         type:String,
+    },
+    idUser:{
+        type:String,
+        require:true,  
     }
 },{timestamps:true})
 

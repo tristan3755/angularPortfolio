@@ -32,6 +32,7 @@ password:coPassword.value,
     .then((res)=>res.json())
     .then((res)=>{
         (token = res.token), (userId = res.userId);
+        console.log(userId)
         let blocErreur=document.createElement('p')
         blocErreur.innerHTML='erreur d\'identifiants ou de mot de passe'
         blocErreur.style.position='absolute'
@@ -40,13 +41,18 @@ password:coPassword.value,
 
         let boutonConnexionHeader=document.querySelector('.boutonConnexion')
         let boutonInscriptionHeader=document.querySelector('.boutonInscription')
+        let header=document.getElementById('nav')
         let boutonDeco=document.querySelector('.deco')
         let bontonInsMobile=document.querySelector('#menuMobile div:nth-child(1)')
         let bontonCoMobile=document.querySelector('#menuMobile div:nth-child(2)')
 
-boutonDeco.addEventListener('click',()=>{
-    window.location.reload()
-})
+        let gestion=document.createElement('div')
+        gestion.classList='boutonGestion'
+        gestion.style.display='none'
+        let a=document.createElement('a')
+        a.innerHTML=" mes articles"
+        gestion.appendChild(a)
+        header.appendChild(gestion)
 
 monBlocCo.appendChild(blocErreur)
         if(res.code==200){
@@ -58,12 +64,29 @@ monBlocCo.appendChild(blocErreur)
             boutonDeco.style.display='flex'
             bontonCoMobile.style.display='none'
             bontonInsMobile.style.display='none'
+            gestion.style.display="flex"
+            document.getElementById('gestionConnect').style.display="flex"
         }else if(res.code==401){ 
             blocErreur.style.display='flex'
         }
+        gestion.addEventListener('click',()=>{
+            document.getElementById('dashBoard').style.display='flex'
+                })
+                document.getElementById('gestionConnect').addEventListener('click',()=>{
+                    document.getElementById('dashBoard').style.display='flex'
+                })
+                document.querySelector('#dashBoard div:nth-child(4)').addEventListener('click',()=>{
+                    document.getElementById('dashBoard').style.display='none'
+                })
+                boutonDeco.addEventListener('click',()=>{
+                    window.location.reload()
+                })
     })
     .catch()
+
 }
+
+
 
 /* inscription*/
 let urlInscription='http://localhost:3000/users/inscription'
