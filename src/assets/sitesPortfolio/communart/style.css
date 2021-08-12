@@ -823,3 +823,52 @@ transform: scale(1.1);
 #gestionConnect{
   display: none;
 }
+#formAjout{
+  position: fixed;
+  width: 100%;
+  min-height: 100vh;
+  background-color:#1e272e;
+  z-index: 3;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+  display: none;
+  animation: inscription linear forwards 1s;
+}
+#ajoutArticle{
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+#ajoutArticle input{
+  width: 300px;
+max-width: 80%;
+height: 50px;
+background-color: transparent;
+border-top: none;
+border-left: none;
+border-right: none;
+border-color:#f53b57;
+color: white;
+font-family: 'Raleway', sans-serif;
+transition: ease-in-out 1s;
+}
+#ajoutArticle textarea{
+  width: 300px;
+max-width: 80%;
+height: 300px;
+background-color: transparent;
+border-top: none;
+border-left: none;
+border-right: none;
+border-color:#f53b57;
+color: white;
+font-family: 'Raleway', sans-serif;
+transition: ease-in-out 1s;
+resize: none;
+}

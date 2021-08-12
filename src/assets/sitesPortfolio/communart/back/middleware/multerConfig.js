@@ -19,4 +19,4 @@ filename:(req,file,callback)=>{
 
 })
 
-module.exports=multer({storage:sauvegarde}).single('image')
+module.exports=multer({storage:sauvegarde}).single('imageArticle')

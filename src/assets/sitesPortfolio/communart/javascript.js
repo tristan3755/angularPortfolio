@@ -234,3 +234,6 @@ document.documentElement.addEventListener("mousemove", (e) => {
       document.getElementById('menuMobile').style.display="none"
     }
   })
+/*input form ajout*/
+   
+

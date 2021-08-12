@@ -81,6 +81,9 @@ monBlocCo.appendChild(blocErreur)
                 boutonDeco.addEventListener('click',()=>{
                     window.location.reload()
                 })
+                document.querySelector('#dashBoard div:nth-child(1)').addEventListener('click',()=>{
+                    document.getElementById('formAjout').style.display='flex'
+                })
     })
     .catch()
 
@@ -129,3 +132,28 @@ if(inputPassword.value==inputPasswordVerif.value){
 }
 })
 
+/*post article*/
+
+let idUser=document.getElementById('idUser')
+let urlPostArticle='http://localhost:3000/redaction/article/add'
+
+let boutonFormAjout=document.getElementById('boutonFormAjout')
+boutonFormAjout.addEventListener('click',(e)=>{
+    e.preventDefault()
+    console.log(userId)
+    idUser.value=userId
+   const formData=new FormData()
+   formData.append('titre',titre.value)
+   formData.append('text',text.value)
+   formData.append('categorie',categorie.value)
+   formData.append('auteur',auteur.value)
+   formData.append('imageArticle',imageArticle.files[0])
+   formData.append('idUser',idUser.value=userId)
+
+
+   fetch(urlPostArticle,{method:'POST',body:formData,headers: {
+    Authorization: "Bearer" + " " + token,
+  },})
+   .then((res)=>res.json())
+
+})

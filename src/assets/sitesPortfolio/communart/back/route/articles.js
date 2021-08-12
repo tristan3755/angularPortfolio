@@ -15,7 +15,7 @@ router.post('/article/add',auth,multer,(req, res) => {
         idUser:req.body.idUser,
         categorie:req.body.categorie,
         auteur:req.body.auteur,
-        image:`${req.protocol}://${req.get('host')}/images/${req.file.filename}`
+        imageArticle:`${req.protocol}://${req.get('host')}/images/${req.file.filename}`
     })
     newArticle.save((err, data) => {
         if (!err) {

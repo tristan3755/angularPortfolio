@@ -17,7 +17,7 @@ const articleSchema=mongoose.Schema({
         type:String,
         require:true,
     },
-    image:{
+    imageArticle:{
         type:String,
     },
     idUser:{
