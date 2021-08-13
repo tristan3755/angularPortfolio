@@ -5,6 +5,7 @@ const auth=require('../middleware/auth.js')
 const multer=require('../middleware/multerConfig.js')
 const path=require('path')
 const fs=require('fs')
+const article = require("../models/article.js")
 
 
 router.post('/article/add',auth,multer,(req, res) => {
@@ -57,6 +58,21 @@ router.get('/article', (req, res) => {
                 res.send(article)
             }
         })
+})
+/*get par id*/
+router.get('/article/id/:idUser',auth,(req,res)=>{
+    articleSchema.find({
+        idUser:req.params.idUser
+    })
+    .then(article=>{
+        if (!article) {
+            res.status(401).json({
+                error: "aucun article trouvé avec cet id"
+            })
+        } else {
+            res.send(article)  
+        }
+    })
 })
 router.delete('/article/:titre',auth,(req, res) => {
     articleSchema.findOne({

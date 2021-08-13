@@ -86,11 +86,7 @@ monBlocCo.appendChild(blocErreur)
                 })
     })
     .catch()
-
 }
-
-
-
 /* inscription*/
 let urlInscription='http://localhost:3000/users/inscription'
 
@@ -138,6 +134,7 @@ let idUser=document.getElementById('idUser')
 let urlPostArticle='http://localhost:3000/redaction/article/add'
 
 let boutonFormAjout=document.getElementById('boutonFormAjout')
+boutonFormAjout.style.border="none"
 boutonFormAjout.addEventListener('click',(e)=>{
     e.preventDefault()
     console.log(userId)
@@ -155,5 +152,45 @@ boutonFormAjout.addEventListener('click',(e)=>{
     Authorization: "Bearer" + " " + token,
   },})
    .then((res)=>res.json())
+   .then((res)=>{
+       if(res.code!==200){
+           console.log('probleme ajout')
+       }else{
+           console.log('no problemo')
+       }
+   })
 
 })
+
+/*get modif article*/
+
+let urlGetarticleModif="http://localhost:3000/redaction/article/id/"
+let articleModifPage=document.getElementById('articleModif')
+boutonModifArticle.addEventListener('click',()=>{
+
+    fetch(urlGetarticleModif+userId,{method:'GET',headers: {
+        Authorization: "Bearer" + " " + token,
+        "Content-Type": "application/json; charset=UTF-8",
+      }})
+      .then((res)=>res.json())
+      .then((res)=>{
+for(let i in res){
+let blocImage=document.createElement('div')
+blocImage.style.backgroundImage='url('+res[i].imageArticle+')'
+blocImage.classList='imageAvantModif'
+
+
+let blocParaImage=document.createElement('p')
+blocParaImage.innerHTML=res[i].titre
+blocParaImage.classList='paraModifPage'
+blocImage.appendChild(blocParaImage)
+articleModifPage.appendChild(blocImage)
+}
+
+
+          console.log(res)
+      })
+
+      console.log(userId)
+})
+

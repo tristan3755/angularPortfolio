@@ -143,14 +143,22 @@
         </article>
         <article id="formAjout">
             <form id="ajoutArticle">
-<input type="text" id="titre" class="inputFormAjout" placeholder="titre de l'oeuvre">
-<textarea type="text" id='text' class="inputFormAjout" >votre article</textarea>
-<input type="text" id='categorie' placeholder="catégorie">
-<input type="text" id="auteur" class="inputFormAjout" placeholder="auteur de l'oeuvre">
-<input type="file" id="imageArticle">
-<input type='text' id="idUser" placeholder="id" hidden>
-<button type="submit" id='boutonFormAjout'></button>
+                <div class="croix"><svg width="100%" height="100%" viewBox="0 0 716 716" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <line x1="523.021" y1="176.23" x2="190.77" y2="537.741" stroke="white" stroke-width="15" stroke-linecap="round"/>
+                    <line x1="533.68" y1="529.648" x2="172.169" y2="197.397" stroke="white" stroke-width="15" stroke-linecap="round"/>
+                    </svg>
+                    </div>
+                <input type="text" id="titre" class="inputFormAjout" placeholder="titre de l'oeuvre" required>
+                <textarea type="text" id='text' class="inputFormAjout" required>votre article</textarea>
+                <input type="text" id='categorie' placeholder="catégorie" required>
+                <input type="text" id="auteur" class="inputFormAjout" placeholder="auteur de l'oeuvre" required>
+                <input type="file" id="imageArticle" required>
+                <input type='text' id="idUser" placeholder="id" hidden>
+                <button type="submit" id='boutonFormAjout' class="boutonInscriptionFormulaire"> Publier</button>
             </form>
+        </article>
+        <article id="articleModif">
+
         </article>
     </section>
     <section> 

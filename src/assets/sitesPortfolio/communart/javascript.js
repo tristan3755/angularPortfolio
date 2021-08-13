@@ -235,5 +235,17 @@ document.documentElement.addEventListener("mousemove", (e) => {
     }
   })
 /*input form ajout*/
-   
+let formAjout=document.getElementById('formAjout')
 
+let croixFormAjout=document.querySelector('.croix')
+
+croixFormAjout.addEventListener('click',()=>{
+  formAjout.style.display='none'
+})
+
+let articleModif=document.getElementById('articleModif')
+
+let boutonModifArticle=document.querySelector('#dashBoard div:nth-child(2)')
+boutonModifArticle.addEventListener('click',()=>{
+  articleModif.style.display='flex'
+})
