@@ -247,5 +247,14 @@ let articleModif=document.getElementById('articleModif')
 
 let boutonModifArticle=document.querySelector('#dashBoard div:nth-child(2)')
 boutonModifArticle.addEventListener('click',()=>{
-  articleModif.style.display='flex'
+  articleModif.style.display='grid'
+})
+
+/*input preModif*/
+
+
+let croixPreModif=document.querySelector('.croixModifFermeture')
+
+croixPreModif.addEventListener('click',()=>{
+  articleModifPage.style.display='none'
 })

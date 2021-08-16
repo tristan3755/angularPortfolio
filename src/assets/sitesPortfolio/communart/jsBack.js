@@ -179,6 +179,9 @@ let blocImage=document.createElement('div')
 blocImage.style.backgroundImage='url('+res[i].imageArticle+')'
 blocImage.classList='imageAvantModif'
 
+blocImage.addEventListener('click',()=>{
+    console.log('click article'+res[i]._id )
+})
 
 let blocParaImage=document.createElement('p')
 blocParaImage.innerHTML=res[i].titre
