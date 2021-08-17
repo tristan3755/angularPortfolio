@@ -180,7 +180,116 @@ blocImage.style.backgroundImage='url('+res[i].imageArticle+')'
 blocImage.classList='imageAvantModif'
 
 blocImage.addEventListener('click',()=>{
-    console.log('click article'+res[i]._id )
+    console.log('click article'+res[i]._id)
+
+    let formulaireModif=document.createElement('form')
+    formulaireModif.classList='formModif'
+    formulaireModif.style.display='flex'
+
+    let inputTitreModif = document.createElement("input");
+    inputTitreModif.type = "text";
+    inputTitreModif.id='titreModif'
+    inputTitreModif.required=true
+    inputTitreModif.value=res[i].titre
+
+    formulaireModif.appendChild(inputTitreModif)
+
+    let inputTextModif = document.createElement("textarea");
+    inputTextModif.type = "text";
+    inputTextModif.id='textModif'
+    inputTextModif.required=true
+    inputTextModif.value=res[i].text
+
+    formulaireModif.appendChild(inputTextModif)
+
+    let inputTextCategorie= document.createElement("input");
+    inputTextCategorie.type = "text";
+    inputTextCategorie.id='categorieModif'
+    inputTextCategorie.required=true
+    inputTextCategorie.value=res[i].categorie
+
+    formulaireModif.appendChild(inputTextCategorie)
+
+    let inputTextAuteur= document.createElement("input");
+    inputTextAuteur.type = "text";
+    inputTextAuteur.id='auteurModif'
+    inputTextAuteur.required=true
+    inputTextAuteur.value=res[i].auteur
+
+    formulaireModif.appendChild(inputTextAuteur)
+
+    let inputFichierModif = document.createElement("input");
+    inputFichierModif.type = "file";
+    inputFichierModif.id="imageModif"
+    inputFichierModif.accept="image/png, image/jpeg,image/jpg"
+    inputFichierModif.label='votre image d\'article'
+
+    
+    formulaireModif.appendChild(inputFichierModif)
+
+    let inputIdarticle= document.createElement("input");
+    inputIdarticle.type = "text";
+    inputIdarticle.id='idArticleModif'
+    inputIdarticle.required=true
+    inputIdarticle.value=res[i]._id
+
+    formulaireModif.appendChild(inputIdarticle)
+
+    let validationModif = document.createElement("button");
+    validationModif.className = "boutonInscriptionFormulaire";
+    validationModif.type='submit'
+    validationModif.innerHTML='modifier mon article'
+    validationModif.style.border="none"
+    
+    formulaireModif.appendChild(validationModif)
+    
+/*svg croix*/
+
+    let divSvg=document.createElement('div')
+    divSvg.classList='croixFermModif'
+
+
+    let croixSvg=document.createElementNS('http://www.w3.org/2000/svg','svg')
+    croixSvg.setAttribute('width','100%')
+    croixSvg.setAttribute('height','100%')
+    croixSvg.setAttribute('viewBox','0 0 716 716')
+    croixSvg.setAttribute('fill','none')
+    /*croixSvg.setAttribute('xmlns','http://www.w3.org/2000/svg')*/
+
+    let line1=document.createElementNS('http://www.w3.org/2000/svg','line')
+    line1.setAttribute('x1','523.021')
+    line1.setAttribute('y1',"176.23")
+    line1.setAttribute('x2',"190.77")
+    line1.setAttribute('y2',"537.741")
+    line1.setAttribute('stroke',"white")
+    line1.setAttribute('stroke-width',15)
+    line1.setAttribute('stroke-linecap',"round")
+
+
+    let line2=document.createElementNS('http://www.w3.org/2000/svg','line')
+    line2.setAttribute('x1',"533.68")
+    line2.setAttribute('y1',"529.648")
+    line2.setAttribute('x2',"172.169")
+    line2.setAttribute('y2',"197.397")
+    line2.setAttribute('stroke',"white")
+    line2.setAttribute('stroke-width',15)
+    line2.setAttribute('stroke-linecap',"round")
+
+
+    croixSvg.addEventListener('click',()=>{
+        formulaireModif.style.display='none'
+    })
+
+    croixSvg.appendChild(line1)
+    croixSvg.appendChild(line2)
+    divSvg.appendChild(croixSvg)
+    formulaireModif.appendChild(divSvg)
+
+    
+/*svg croix*/
+
+
+    document.getElementById('sect1').appendChild(formulaireModif)
 })
 
 let blocParaImage=document.createElement('p')
