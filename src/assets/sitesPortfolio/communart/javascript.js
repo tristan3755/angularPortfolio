@@ -244,6 +244,7 @@ croixFormAjout.addEventListener('click',()=>{
 })
 
 let articleModif=document.getElementById('articleModif')
+let croixPreModif=document.querySelector('.croixModifFermeture')
 
 let boutonModifArticle=document.querySelector('#dashBoard div:nth-child(2)')
 boutonModifArticle.addEventListener('click',()=>{
@@ -253,8 +254,7 @@ boutonModifArticle.addEventListener('click',()=>{
 /*input preModif*/
 
 
-let croixPreModif=document.querySelector('.croixModifFermeture')
-
 croixPreModif.addEventListener('click',()=>{
   articleModifPage.style.display='none'
+  
 })

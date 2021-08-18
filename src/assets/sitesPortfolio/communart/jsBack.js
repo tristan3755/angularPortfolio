@@ -1,5 +1,6 @@
 let token = ""
 let userId = ""
+let idArticle=""
 
 /*connexion*/
 
@@ -165,6 +166,7 @@ boutonFormAjout.addEventListener('click',(e)=>{
 /*get modif article*/
 
 let urlGetarticleModif="http://localhost:3000/redaction/article/id/"
+let urlModifArticle="http://localhost:3000/redaction/article/modif/"
 let articleModifPage=document.getElementById('articleModif')
 boutonModifArticle.addEventListener('click',()=>{
 
@@ -182,58 +184,11 @@ blocImage.classList='imageAvantModif'
 blocImage.addEventListener('click',()=>{
     console.log('click article'+res[i]._id)
 
+
+
     let formulaireModif=document.createElement('form')
     formulaireModif.classList='formModif'
     formulaireModif.style.display='flex'
-
-    let inputTitreModif = document.createElement("input");
-    inputTitreModif.type = "text";
-    inputTitreModif.id='titreModif'
-    inputTitreModif.required=true
-    inputTitreModif.value=res[i].titre
-
-    formulaireModif.appendChild(inputTitreModif)
-
-    let inputTextModif = document.createElement("textarea");
-    inputTextModif.type = "text";
-    inputTextModif.id='textModif'
-    inputTextModif.required=true
-    inputTextModif.value=res[i].text
-
-    formulaireModif.appendChild(inputTextModif)
-
-    let inputTextCategorie= document.createElement("input");
-    inputTextCategorie.type = "text";
-    inputTextCategorie.id='categorieModif'
-    inputTextCategorie.required=true
-    inputTextCategorie.value=res[i].categorie
-
-    formulaireModif.appendChild(inputTextCategorie)
-
-    let inputTextAuteur= document.createElement("input");
-    inputTextAuteur.type = "text";
-    inputTextAuteur.id='auteurModif'
-    inputTextAuteur.required=true
-    inputTextAuteur.value=res[i].auteur
-
-    formulaireModif.appendChild(inputTextAuteur)
-
-    let inputFichierModif = document.createElement("input");
-    inputFichierModif.type = "file";
-    inputFichierModif.id="imageModif"
-    inputFichierModif.accept="image/png, image/jpeg,image/jpg"
-    inputFichierModif.label='votre image d\'article'
-
-    
-    formulaireModif.appendChild(inputFichierModif)
-
-    let inputIdarticle= document.createElement("input");
-    inputIdarticle.type = "text";
-    inputIdarticle.id='idArticleModif'
-    inputIdarticle.required=true
-    inputIdarticle.value=res[i]._id
-
-    formulaireModif.appendChild(inputIdarticle)
 
     let validationModif = document.createElement("button");
     validationModif.className = "boutonInscriptionFormulaire";
@@ -241,8 +196,83 @@ blocImage.addEventListener('click',()=>{
     validationModif.innerHTML='modifier mon article'
     validationModif.style.border="none"
     
-    formulaireModif.appendChild(validationModif)
+
+    let inputTitreModif = document.createElement("input");
+    inputTitreModif.type = "text";
+    inputTitreModif.id='titre'
+    inputTitreModif.required=true
+    inputTitreModif.value=res[i].titre
+
+    formulaireModif.appendChild(inputTitreModif)
+
+    let inputTextModif = document.createElement("textarea");
+    inputTextModif.type = "text";
+    inputTextModif.id='text'
+    inputTextModif.required=true
+    inputTextModif.value=res[i].text
+
+    formulaireModif.appendChild(inputTextModif)
+
+    let inputTextCategorie= document.createElement("input");
+    inputTextCategorie.type = "text";
+    inputTextCategorie.id='categorie'
+    inputTextCategorie.required=true
+    inputTextCategorie.value=res[i].categorie
+
+    formulaireModif.appendChild(inputTextCategorie)
+
+    let inputTextAuteur= document.createElement("input");
+    inputTextAuteur.type = "text";
+    inputTextAuteur.id='auteur'
+    inputTextAuteur.required=true
+    inputTextAuteur.value=res[i].auteur
+
+    formulaireModif.appendChild(inputTextAuteur)
+
+    let inputFichierModif = document.createElement("input");
+    inputFichierModif.type = "file";
+    inputFichierModif.id="imageArticle"
+    inputFichierModif.accept="image/png, image/jpeg,image/jpg"
+    inputFichierModif.label='votre image d\'article'
+
     
+    formulaireModif.appendChild(inputFichierModif)
+
+    idArticle=res[i]._id
+
+  
+    formulaireModif.appendChild(validationModif)
+
+
+    validationModif.addEventListener('click',(e)=>{
+        e.preventDefault()
+        articleModifPage.innerHTML=''
+        articleModifPage.style.display='none'
+        console.log(idArticle)
+        const formData=new FormData()
+        formData.append('titre',inputTitreModif.value)
+        formData.append('text',inputTextModif.value)
+        formData.append('categorie',inputTextCategorie.value)
+        formData.append('auteur',inputTextAuteur.value)
+        formData.append('imageArticle',inputFichierModif.files[0])
+
+        console.log(inputTitreModif.value)
+
+
+        fetch(urlModifArticle+idArticle,{method:'PUT',body:formData,headers:{
+            Authorization: "Bearer" + " " + token,
+          },})
+          .then((res)=>res.json())
+          .then((res)=>{
+            if(res.code!==200){
+                console.log('probleme ajout')
+            }else{
+                console.log('no problemo')
+            }
+        })
+
+    })
+
 /*svg croix*/
 
     let divSvg=document.createElement('div')

@@ -96,28 +96,26 @@ router.delete('/article/:titre',auth,(req, res) => {
     })
     .catch(error=>res.status(500).json({error}))
 })
-router.put('/article/modif/:titre',auth,multer,(req, res) => {
+router.put('/article/modif/:_id',auth,multer,(req, res) => {
 let article=({})
     if(req.file){
           article = ({
             titre: req.body.titre,
             text: req.body.text,
-            date:req.body.date,
             categorie:req.body.categorie,
             auteur:req.body.auteur,
-            image:`${req.protocol}://${req.get('host')}/images/${req.file.filename}`
+            imageArticle:`${req.protocol}://${req.get('host')}/images/${req.file.filename}`
         }) 
     }else{
           article = ({
             titre: req.body.titre,
             text: req.body.text,
-            date:req.body.date,
             categorie:req.body.categorie,
             auteur:req.body.auteur,
         })
     }  
 articleSchema.findOneAndUpdate({
-            titre: req.params.titre
+            _id: req.params._id
         }, {$set: article}, {
             new: true
         })
