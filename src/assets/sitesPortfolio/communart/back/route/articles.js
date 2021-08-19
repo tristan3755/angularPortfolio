@@ -47,7 +47,7 @@ router.get('/article/:titre', (req, res) => {
             }
         })
 })
-router.get('/article', (req, res) => {
+router.get('/article',(req, res) => {
     articleSchema.find({})
         .then(article => {
             if (!article) {
@@ -74,14 +74,14 @@ router.get('/article/id/:idUser',auth,(req,res)=>{
         }
     })
 })
-router.delete('/article/:titre',auth,(req, res) => {
+router.delete('/article/supp/:_id',auth,multer,(req, res) => {
     articleSchema.findOne({
-        titre: req.params.titre
-    }).then(imageArticle=>{
-        const imageFichier=imageArticle.image.split('/images/')[1]
+        _id: req.params._id
+    }).then(imageAsupp=>{
+        const imageFichier=imageAsupp.imageArticle.split('/images/')[1]
         fs.unlink(`images/${imageFichier}`,()=>{
             articleSchema.deleteOne({
-                titre: req.params.titre
+                _id: req.params._id
             })
             .then(article => {
                 if (!article) {
@@ -94,7 +94,6 @@ router.delete('/article/:titre',auth,(req, res) => {
             })
         })
     })
-    .catch(error=>res.status(500).json({error}))
 })
 router.put('/article/modif/:_id',auth,multer,(req, res) => {
 let article=({})

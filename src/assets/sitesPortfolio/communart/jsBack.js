@@ -17,13 +17,13 @@ coPassword.addEventListener('click',()=>{
 let boutonCoBack=document.querySelector('.boutonCoFormulaire')
 
 boutonCoBack.addEventListener('click',()=>{
-
 connexion()
  console.log('click')   
 })
 
 
 function connexion(){
+    
     let mesValeursCo={
 mailUsers:coMail.value,
 password:coPassword.value,
@@ -168,8 +168,11 @@ boutonFormAjout.addEventListener('click',(e)=>{
 let urlGetarticleModif="http://localhost:3000/redaction/article/id/"
 let urlModifArticle="http://localhost:3000/redaction/article/modif/"
 let articleModifPage=document.getElementById('articleModif')
+let monBlocModif=document.createElement('div')
+monBlocModif.classList='blocImageModif'
+articleModifPage.appendChild(monBlocModif)
 boutonModifArticle.addEventListener('click',()=>{
-
+    monBlocModif.innerHTML=''
     fetch(urlGetarticleModif+userId,{method:'GET',headers: {
         Authorization: "Bearer" + " " + token,
         "Content-Type": "application/json; charset=UTF-8",
@@ -183,8 +186,6 @@ blocImage.classList='imageAvantModif'
 
 blocImage.addEventListener('click',()=>{
     console.log('click article'+res[i]._id)
-
-
 
     let formulaireModif=document.createElement('form')
     formulaireModif.classList='formModif'
@@ -246,7 +247,7 @@ blocImage.addEventListener('click',()=>{
 
     validationModif.addEventListener('click',(e)=>{
         e.preventDefault()
-        articleModifPage.innerHTML=''
+        monBlocModif.innerHTML=''
         articleModifPage.style.display='none'
         console.log(idArticle)
         const formData=new FormData()
@@ -313,12 +314,8 @@ blocImage.addEventListener('click',()=>{
     croixSvg.appendChild(line1)
     croixSvg.appendChild(line2)
     divSvg.appendChild(croixSvg)
-    formulaireModif.appendChild(divSvg)
-
-    
+    formulaireModif.appendChild(divSvg)   
 /*svg croix*/
-
-
     document.getElementById('sect1').appendChild(formulaireModif)
 })
 
@@ -326,7 +323,7 @@ let blocParaImage=document.createElement('p')
 blocParaImage.innerHTML=res[i].titre
 blocParaImage.classList='paraModifPage'
 blocImage.appendChild(blocParaImage)
-articleModifPage.appendChild(blocImage)
+monBlocModif.appendChild(blocImage)
 }
 
 
@@ -336,3 +333,46 @@ articleModifPage.appendChild(blocImage)
       console.log(userId)
 })
 
+/***************************************************PreSub******************************************************/
+
+let urlSupp='http://localhost:3000/redaction/article/supp/'
+
+let articleSuppPage=document.getElementById('articleSupp')
+let suppImage=document.createElement('div')
+suppImage.classList='blocImageModif'
+articleSuppPage.appendChild(suppImage)
+
+let boutonSupp=document.querySelector('#dashBoard div:nth-child(3)')
+boutonSupp.addEventListener('click',()=>{
+    suppImage.innerHTML=''
+    articleSuppPage.style.display="flex"
+
+    fetch(urlGetarticleModif+userId,{method:'GET',headers: {
+        Authorization: "Bearer" + " " + token,
+        "Content-Type": "application/json; charset=UTF-8",
+      }})
+      .then((res)=>res.json())
+      .then((res)=>{
+    for(let i in res){
+    let blocImageSupp=document.createElement('div')
+    blocImageSupp.style.backgroundImage='url('+res[i].imageArticle+')'
+    blocImageSupp.classList='imageAvantModif'
+    suppImage.appendChild(blocImageSupp)
+
+    blocImageSupp.addEventListener('click',()=>{
+        console.log(idArticle=res[i]._id)
+        
+        fetch(urlSupp+idArticle,{method:'DELETE',headers:{
+            Authorization: "Bearer" + " " + token,
+            "Content-Type": "application/json; charset=UTF-8",
+        }})
+        .then((res)=>res.json())
+        articleSuppPage.style.display="none"
+    })
+    }
+    })
+})
+let croixSupp=document.querySelector('.croixSuppFermeture')
+croixSupp.addEventListener('click',()=>{
+    articleSuppPage.style.display="none"
+})
