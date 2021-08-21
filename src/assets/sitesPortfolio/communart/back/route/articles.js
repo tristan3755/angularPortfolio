@@ -20,15 +20,9 @@ router.post('/article/add',auth,multer,(req, res) => {
     })
     newArticle.save((err, data) => {
         if (!err) {
-            res.status(200).json({
-                code: 200,
-                message: 'article ajouté :' + data
-            })
+           res.status(200).json({code: 200,message: 'article ajouté :' + data})
         } else {
-            res.status(500).json({
-                code: 500,
-                message: 'article ajout erreur :' + err
-            })
+            res.status(500).json({code: 500, message: 'article ajout erreur :' + err})
         }
     })
 
@@ -121,11 +115,15 @@ articleSchema.findOneAndUpdate({
         .then(articleModifie => {
             if (!articleModifie) {
                 res.status(401).json({
-                    error: "modif impossible car article inexistant"
+                  code:401,error: "modif impossible car article inexistant"
                 })
             } else {
+                res.status(200).json({
+                    code:200
+                  })
                 res.send(articleModifie)
             }
+
         })
 })
 module.exports = router

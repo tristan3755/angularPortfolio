@@ -827,6 +827,8 @@ transform: scale(1.1);
   position: fixed;
   width: 100%;
   min-height: 100vh;
+  max-height: 100%;
+  overflow-y: auto;
   background-color:#1e272e;
   z-index: 3;
   display: flex;
@@ -837,8 +839,12 @@ transform: scale(1.1);
   display: none;
   animation: inscription linear forwards 1s;
 }
+#formAjout::-webkit-scrollbar{
+  height: 0;
+  width:0;
+}
 #ajoutArticle{
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -858,19 +864,30 @@ color: white;
 font-family: 'Raleway', sans-serif;
 transition: ease-in-out 1s;
 }
+#ajoutArticle select{
+  width: 300px;
+  max-width: 80%;
+  height: 50px;
+  background-color: transparent;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-color:#f53b57;
+  color: white;
+  background-color: #1e272e;
+  font-family: 'Raleway', sans-serif;
+  transition: ease-in-out 1s;
+  }
 #ajoutArticle textarea{
-width: 300px;
-max-width: 80%;
-height: 300px;
-background-color: transparent;
-border-top: none;
-border-left: none;
-border-right: none;
-border-color:#f53b57;
-color: white;
-font-family: 'Raleway', sans-serif;
-transition: ease-in-out 1s;
-resize: none;
+  width: 1000px;
+  max-width: 80%;
+  height: 300px;
+  background-color: transparent;
+  border-color:#f53b57;
+  color: white;
+  font-family: 'Raleway', sans-serif;
+  transition: ease-in-out 1s;
+  resize: none;
 }
 .croix{
   position: absolute;
@@ -958,6 +975,44 @@ width: 100%;
   animation: inscription linear forwards 1s;
   z-index: 7;
 }
+.formModif textarea{
+  width: 1000px;
+  max-width: 80%;
+  height: 300px;
+  background-color: transparent;
+  border-color:#f53b57;
+  color: white;
+  font-family: 'Raleway', sans-serif;
+  transition: ease-in-out 1s;
+  resize: none;
+  }
+  .formModif input{
+    width: 300px;
+    max-width: 80%;
+    height: 50px;
+    background-color: transparent;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-color:#f53b57;
+    color: white;
+    font-family: 'Raleway', sans-serif;
+    transition: ease-in-out 1s;
+    }
+    .formModif select{
+      width: 300px;
+      max-width: 80%;
+      height: 50px;
+      background-color: transparent;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+      border-color:#f53b57;
+      color: white;
+      background-color: #1e272e;
+      font-family: 'Raleway', sans-serif;
+      transition: ease-in-out 1s;
+      }
 .formModif::-webkit-scrollbar{
 height: 0px;
 width: 0px;

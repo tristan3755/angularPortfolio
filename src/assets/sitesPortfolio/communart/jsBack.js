@@ -136,6 +136,9 @@ let urlPostArticle='http://localhost:3000/redaction/article/add'
 
 let boutonFormAjout=document.getElementById('boutonFormAjout')
 boutonFormAjout.style.border="none"
+
+
+
 boutonFormAjout.addEventListener('click',(e)=>{
     e.preventDefault()
     console.log(userId)
@@ -148,18 +151,30 @@ boutonFormAjout.addEventListener('click',(e)=>{
    formData.append('imageArticle',imageArticle.files[0])
    formData.append('idUser',idUser.value=userId)
 
-
+   if(titre.value!==''&&text.value!==''&&categorie.value!==''&&auteur.value!==''){
    fetch(urlPostArticle,{method:'POST',body:formData,headers: {
     Authorization: "Bearer" + " " + token,
   },})
    .then((res)=>res.json())
    .then((res)=>{
-       if(res.code!==200){
-           console.log('probleme ajout')
+
+    console.log(res.code)
+      if(res.code!==200){
+           console.log(res.code)
        }else{
            console.log('no problemo')
+           document.getElementById('formAjout').style.display='none'
        }
    })
+}else{
+    let blocAjoutError=document.createElement('p')
+     blocAjoutError.innerHTML='problème d\'ajout, veuillez bien remplir tous les champs s\'il vous plaît'
+     blocAjoutError.style.display="flex"
+     blocAjoutError.style.position='absolute'
+     blocAjoutError.style.top='0'
+     blocAjoutError.style.color='#893142'
+     document.getElementById('formAjout').appendChild(blocAjoutError)
+}
 
 })
 
@@ -197,7 +212,6 @@ blocImage.addEventListener('click',()=>{
     validationModif.innerHTML='modifier mon article'
     validationModif.style.border="none"
     
-
     let inputTitreModif = document.createElement("input");
     inputTitreModif.type = "text";
     inputTitreModif.id='titre'
@@ -214,11 +228,34 @@ blocImage.addEventListener('click',()=>{
 
     formulaireModif.appendChild(inputTextModif)
 
-    let inputTextCategorie= document.createElement("input");
+    let inputTextCategorie= document.createElement("select");
     inputTextCategorie.type = "text";
     inputTextCategorie.id='categorie'
     inputTextCategorie.required=true
-    inputTextCategorie.value=res[i].categorie
+
+    let inputTextCategorieOption=document.createElement('option')
+    inputTextCategorieOption.innerHTML=res[i].categorie
+    inputTextCategorie.appendChild(inputTextCategorieOption)
+
+    let inputTextCategorieOption1=document.createElement('option')
+    inputTextCategorieOption1.innerHTML="Peinture"
+    inputTextCategorie.appendChild(inputTextCategorieOption1)
+
+    let inputTextCategorieOption2=document.createElement('option')
+    inputTextCategorieOption2.innerHTML="Sculpture"
+    inputTextCategorie.appendChild(inputTextCategorieOption2)
+    
+    let inputTextCategorieOption3=document.createElement('option')
+    inputTextCategorieOption3.innerHTML="Architecture"
+    inputTextCategorie.appendChild(inputTextCategorieOption3)
+
+    let inputTextCategorieOption4=document.createElement('option')
+    inputTextCategorieOption4.innerHTML="Arts scénique"
+    inputTextCategorie.appendChild(inputTextCategorieOption4)
+
+    let inputTextCategorieOption5=document.createElement('option')
+    inputTextCategorieOption5.innerHTML="Artisanat"
+    inputTextCategorie.appendChild(inputTextCategorieOption5)
 
     formulaireModif.appendChild(inputTextCategorie)
 
@@ -246,19 +283,21 @@ blocImage.addEventListener('click',()=>{
 
 
     validationModif.addEventListener('click',(e)=>{
+     
         e.preventDefault()
         monBlocModif.innerHTML=''
         articleModifPage.style.display='none'
         console.log(idArticle)
+        
         const formData=new FormData()
         formData.append('titre',inputTitreModif.value)
         formData.append('text',inputTextModif.value)
         formData.append('categorie',inputTextCategorie.value)
         formData.append('auteur',inputTextAuteur.value)
         formData.append('imageArticle',inputFichierModif.files[0])
-
         console.log(inputTitreModif.value)
 
+        if(inputTitreModif.value!==''&&inputTextModif.value!==''&&inputTextCategorie.value!==''&&inputTextAuteur.value!==''){
 
         fetch(urlModifArticle+idArticle,{method:'PUT',body:formData,headers:{
             Authorization: "Bearer" + " " + token,
@@ -266,12 +305,23 @@ blocImage.addEventListener('click',()=>{
           .then((res)=>res.json())
           .then((res)=>{
             if(res.code!==200){
-                console.log('probleme ajout')
+            console.log(res.code)
             }else{
+                formulaireModif.style.display='none'
                 console.log('no problemo')
+                console.log(res.code)
             }
         })
-
+    }else{
+          let blocModifError=document.createElement('p')
+        blocModifError.innerHTML='problème pour modifier, veuillez bien remplir tous les champs s\'il vous plaît'
+        blocModifError.style.display="flex"
+        blocModifError.style.position='absolute'
+        blocModifError.style.top='0'
+        blocModifError.style.color='#893142'
+        formulaireModif.appendChild(blocModifError)
+    }
+console.log(inputTitreModif.value)
     })
 
 /*svg croix*/
