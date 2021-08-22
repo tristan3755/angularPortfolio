@@ -936,6 +936,12 @@ transform: rotate(90deg);
   height: 40vh;
   background-position: center;
   background-size: cover;
+  transition: ease-in-out 0.5s;
+}
+.imageAvantModif:hover{
+  cursor: pointer;
+  transform:scale(1.05) ;
+  z-index: 1;
 }
 .paraModifPage{
 position: absolute;

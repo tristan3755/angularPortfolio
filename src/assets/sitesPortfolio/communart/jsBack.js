@@ -158,8 +158,7 @@ boutonFormAjout.addEventListener('click',(e)=>{
    .then((res)=>res.json())
    .then((res)=>{
 
-    console.log(res.code)
-      if(res.code!==200){
+      if(res.code==500){
            console.log(res.code)
        }else{
            console.log('no problemo')
@@ -272,7 +271,15 @@ blocImage.addEventListener('click',()=>{
     inputFichierModif.id="imageArticle"
     inputFichierModif.accept="image/png, image/jpeg,image/jpg"
     inputFichierModif.label='votre image d\'article'
+    /*effet input*/
 
+
+inputTitreModif .addEventListener("click", () => {
+    inputTitreModif.style.width = "500px";
+  });
+  inputTextAuteur .addEventListener("click", () => {
+    inputTextAuteur.style.width = "500px";
+  });
     
     formulaireModif.appendChild(inputFichierModif)
 
@@ -304,12 +311,11 @@ blocImage.addEventListener('click',()=>{
           },})
           .then((res)=>res.json())
           .then((res)=>{
-            if(res.code!==200){
+            if(res.code==401){
             console.log(res.code)
             }else{
                 formulaireModif.style.display='none'
                 console.log('no problemo')
-                console.log(res.code)
             }
         })
     }else{
@@ -374,6 +380,8 @@ blocParaImage.innerHTML=res[i].titre
 blocParaImage.classList='paraModifPage'
 blocImage.appendChild(blocParaImage)
 monBlocModif.appendChild(blocImage)
+
+
 }
 
 

@@ -257,3 +257,11 @@ croixPreModif.addEventListener('click',()=>{
   articleModifPage.style.display='none'
   
 })
+
+
+document.getElementById('titre').addEventListener("click", () => {
+  document.getElementById('titre').style.width = "500px";
+});
+ document.getElementById('auteur').addEventListener("click", () => {
+  document.getElementById('auteur').style.width = "500px";
+});

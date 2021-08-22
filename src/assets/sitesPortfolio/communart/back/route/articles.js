@@ -18,14 +18,18 @@ router.post('/article/add',auth,multer,(req, res) => {
         auteur:req.body.auteur,
         imageArticle:`${req.protocol}://${req.get('host')}/images/${req.file.filename}`
     })
-    newArticle.save((err, data) => {
-        if (!err) {
-           res.status(200).json({code: 200,message: 'article ajouté :' + data})
-        } else {
-            res.status(500).json({code: 500, message: 'article ajout erreur :' + err})
-        }
-    })
+   newArticle.save().then(newArticle=>{
 
+if(!newArticle){
+    res.status(500).json({
+       code:500,error: "problème ajout"
+    })
+}else{
+    res.send(newArticle)
+}
+}).catch(()=>{
+    console.log('y\'a un problème jack')
+})
 })
 router.get('/article/:titre', (req, res) => {
     articleSchema.find({
@@ -118,12 +122,9 @@ articleSchema.findOneAndUpdate({
                   code:401,error: "modif impossible car article inexistant"
                 })
             } else {
-                res.status(200).json({
-                    code:200
-                  })
                 res.send(articleModifie)
-            }
-
+            }}).catch(()=>{
+            console.log('y\'a un problème jack')
         })
 })
 module.exports = router
