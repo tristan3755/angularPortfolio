@@ -100,7 +100,6 @@ validation.addEventListener('click',(e)=>{
     formData.append('password',password.value)
     formData.append('image',image.files[0])
 
-    /*console.log(formData.get('mailUsers'))*/
 if(inputPassword.value==inputPasswordVerif.value){
    fetch(urlInscription,{method:'post',body:formData})
     .then((res)=>res.json())
@@ -174,7 +173,9 @@ boutonFormAjout.addEventListener('click',(e)=>{
      blocAjoutError.style.color='#893142'
      document.getElementById('formAjout').appendChild(blocAjoutError)
 }
-
+})
+document.querySelector('#dashBoard div:nth-child(1)').addEventListener('click',()=>{
+    imageArticle.files[0]==''
 })
 
 /*get modif article*/
@@ -197,6 +198,10 @@ for(let i in res){
 let blocImage=document.createElement('div')
 blocImage.style.backgroundImage='url('+res[i].imageArticle+')'
 blocImage.classList='imageAvantModif'
+
+let voileImage=document.createElement('div')
+voileImage.classList='voileImageAvantModif'
+blocImage.appendChild(voileImage)
 
 blocImage.addEventListener('click',()=>{
     console.log('click article'+res[i]._id)
@@ -273,19 +278,15 @@ blocImage.addEventListener('click',()=>{
     inputFichierModif.label='votre image d\'article'
     /*effet input*/
 
-
-inputTitreModif .addEventListener("click", () => {
+    inputTitreModif.addEventListener("click",()=>{
     inputTitreModif.style.width = "500px";
   });
-  inputTextAuteur .addEventListener("click", () => {
+    inputTextAuteur.addEventListener("click",()=>{
     inputTextAuteur.style.width = "500px";
   });
     
     formulaireModif.appendChild(inputFichierModif)
-
-    idArticle=res[i]._id
-
-  
+    idArticle=res[i]._id  
     formulaireModif.appendChild(validationModif)
 
 
@@ -341,7 +342,6 @@ console.log(inputTitreModif.value)
     croixSvg.setAttribute('height','100%')
     croixSvg.setAttribute('viewBox','0 0 716 716')
     croixSvg.setAttribute('fill','none')
-    /*croixSvg.setAttribute('xmlns','http://www.w3.org/2000/svg')*/
 
     let line1=document.createElementNS('http://www.w3.org/2000/svg','line')
     line1.setAttribute('x1','523.021')
@@ -375,20 +375,30 @@ console.log(inputTitreModif.value)
     document.getElementById('sect1').appendChild(formulaireModif)
 })
 
+
+let dateArticle= res[i].createdAt.split('T')
+console.log(dateArticle)
+
+let date1=dateArticle[0]
+console.log(date1)
+
+let date2=date1.split('-')
+console.log(date2)
+
+let dateFinie=date2[2]+'/'+date2[1]+'/'+date2[0]
+
 let blocParaImage=document.createElement('p')
-blocParaImage.innerHTML=res[i].titre
+blocParaImage.innerHTML=res[i].titre + ',article rédigé le : ' + dateFinie
 blocParaImage.classList='paraModifPage'
+
+blocImage.appendChild(blocParaImage)
+
 blocImage.appendChild(blocParaImage)
 monBlocModif.appendChild(blocImage)
-
-
 }
-
-
-          console.log(res)
-      })
-
-      console.log(userId)
+console.log(res)
+})
+console.log(userId)
 })
 
 /***************************************************PreSub******************************************************/
@@ -434,3 +444,47 @@ let croixSupp=document.querySelector('.croixSuppFermeture')
 croixSupp.addEventListener('click',()=>{
     articleSuppPage.style.display="none"
 })
+/*******************************************getAll*****************************************************/
+
+let urlGetAll='http://localhost:3000/redaction/article'
+let sliderArticle=document.getElementById('slider')
+
+fetch(urlGetAll,{method:'GET',headers:{"Content-Type": "application/json; charset=UTF-8"}})
+.then((res=>res.json()))
+.then((res)=>{
+    console.log(res)
+
+for (let i = 0; i < 12; i++){
+let carteArticle=document.createElement('div')
+carteArticle.classList='carteArticle'
+
+let carteImage=document.createElement('div')
+carteImage.classList='carteArticleHeadImg2'
+carteImage.style.backgroundImage='url('+res[i].imageArticle+')'
+
+let carteArticleHead=document.createElement('div')
+carteArticleHead.classList='carteArticleHead'
+carteArticle.appendChild(carteArticleHead)
+
+let carteArticleHeadDate=document.createElement('p')
+carteArticleHeadDate.classList='carteArticleHeadDate'
+
+let dateArticle= res[i].createdAt.split('T')
+
+let date1=dateArticle[0]
+
+let date2=date1.split('-')
+
+
+let dateFinie=date2[2]+'/'+date2[1]+'/'+date2[0]
+
+carteArticleHeadDate.innerHTML=dateFinie
+
+carteArticleHead.appendChild(carteArticleHeadDate)
+
+carteArticle.appendChild(carteImage)
+
+sliderArticle.appendChild(carteArticle)
+}
+})
+

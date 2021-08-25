@@ -21,14 +21,14 @@ router.post('/article/add',auth,multer,(req, res) => {
    newArticle.save().then(newArticle=>{
 
 if(!newArticle){
-    res.status(500).json({
+    res.status(401).json({
        code:500,error: "problème ajout"
     })
 }else{
     res.send(newArticle)
 }
-}).catch(()=>{
-    console.log('y\'a un problème jack')
+}).catch(error=>{
+    res.send(error).status(500)
 })
 })
 router.get('/article/:titre', (req, res) => {
@@ -43,6 +43,8 @@ router.get('/article/:titre', (req, res) => {
             } else {
                 res.send(article)
             }
+        }).catch(error=>{
+            res.send(error).status(500)
         })
 })
 router.get('/article',(req, res) => {
@@ -55,6 +57,8 @@ router.get('/article',(req, res) => {
             } else {
                 res.send(article)
             }
+        }).catch(error=>{
+            res.send(error).status(500)
         })
 })
 /*get par id*/
@@ -70,6 +74,8 @@ router.get('/article/id/:idUser',auth,(req,res)=>{
         } else {
             res.send(article)  
         }
+    }).catch(error=>{
+        res.send(error).status(500)
     })
 })
 router.delete('/article/supp/:_id',auth,multer,(req, res) => {
@@ -89,6 +95,8 @@ router.delete('/article/supp/:_id',auth,multer,(req, res) => {
                 } else {
                     res.send(article)
                 }
+            }).catch(error=>{
+                res.send(error).status(500)
             })
         })
     })
@@ -123,8 +131,8 @@ articleSchema.findOneAndUpdate({
                 })
             } else {
                 res.send(articleModifie)
-            }}).catch(()=>{
-            console.log('y\'a un problème jack')
-        })
+            }}).catch(error=>{
+                res.send(error).status(500)
+            })
 })
 module.exports = router

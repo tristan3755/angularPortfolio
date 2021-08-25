@@ -388,8 +388,8 @@ section:nth-child(2) article:nth-child(3) p{
   width: 100%;
   min-height: 80vh;
   display: flex;
-  overflow: hidden;
-  align-items: center;
+  overflow: auto;
+ align-items: center;
 }
 .carteArticle{
   height: 70vh;
@@ -423,14 +423,6 @@ section:nth-child(2) article:nth-child(3) p{
   background-position: center;
   background-size: cover;
 }
-.carteArticleHeadImg img{
-  position: absolute;
-  content: '';
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 50%;
- }
 .carteArticleHeadDate{
 color: whitesmoke;
 font-family: 'Raleway', sans-serif;
@@ -438,24 +430,15 @@ font-size: 3vmin;
 text-align: center;
 margin: 10px;
 }
- 
 .carteArticleHeadImg2{
   position: relative;
   width: 100%;
   height: 40vh;
-  background-image:url("./images/enzo.jpg");
   background-position: center;
   background-size: cover;
 }
-.carteArticleHeadImg2 img {
-  position: absolute;
-  content: "";
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
 #sectArticle article .carteArticle div:nth-child(3) {
-    width: 23vw;
+  width: 23vw;
   height: 15vh;
   display: flex;
   flex-direction: row;
@@ -933,22 +916,36 @@ transform: rotate(90deg);
 }
 .imageAvantModif{
   position: relative;
-  height: 40vh;
+  height: 45vh;
   background-position: center;
   background-size: cover;
   transition: ease-in-out 0.5s;
 }
 .imageAvantModif:hover{
   cursor: pointer;
-  transform:scale(1.05) ;
+  transform:scale(1.01) ;
   z-index: 1;
+}
+.imageAvantModif:hover .voileImageAvantModif{
+  height: 100%;
+}
+.voileImageAvantModif{
+  position: absolute;
+  width: 100%;
+  height: 20%;
+  content: '';
+  object-fit: cover;
+  background-color:#1e272e;
+  opacity: 0.6;
+  bottom: 0;
+  transition: ease-in-out 0.5s;
 }
 .paraModifPage{
 position: absolute;
 bottom:0;
-color:white;
+color:whitesmoke;
 font-family: 'Raleway', sans-serif;
-font-size: 20px;
+font-size: 100%;
 text-align: center;
 width: 100%;
 }
