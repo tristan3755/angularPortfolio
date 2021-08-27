@@ -265,3 +265,8 @@ document.getElementById('titre').addEventListener("click", () => {
  document.getElementById('auteur').addEventListener("click", () => {
   document.getElementById('auteur').style.width = "500px";
 });
+/*click catégorie*/
+let categoriePeinture=document.querySelector('#grid article:nth-child(1) div:nth-child(1)')
+categoriePeinture.addEventListener('click',()=>{
+window.open('http://localhost:4200/assets/sitesPortfolio/communart/peinture.html')
+})

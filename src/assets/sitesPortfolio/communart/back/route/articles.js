@@ -14,6 +14,8 @@ router.post('/article/add',auth,multer,(req, res) => {
         titre: req.body.titre,
         text: req.body.text,
         idUser:req.body.idUser,
+       /*idUserImage:`${req.protocol}://${req.get('host')}/images/${req.file.filename}`,*/
+        idUserImage:req.body.idUserImage,
         categorie:req.body.categorie,
         auteur:req.body.auteur,
         imageArticle:`${req.protocol}://${req.get('host')}/images/${req.file.filename}`
@@ -135,4 +137,26 @@ articleSchema.findOneAndUpdate({
                 res.send(error).status(500)
             })
 })
+
+/************************************************* catégories ******************************************************************/
+
+router.get("/categories/:categorie",multer,(req,res)=>{
+articleSchema.find({
+    categorie:req.params.categorie
+})
+.then(articleCategorie=>{
+    if(!articleCategorie){
+        res.status(401).json({
+            code:401,error: "catégorie inexistante"
+          })
+    }else{
+        res.send(articleCategorie)
+    }
+})
+.catch(error=>{
+    res.send(error).status(500)
+})
+})
+
+
 module.exports = router

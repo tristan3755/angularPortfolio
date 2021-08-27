@@ -419,7 +419,6 @@ section:nth-child(2) article:nth-child(3) p{
   height: 80px;
   position: relative;
   margin: 10px;
-  background-image:url("./images/omid.jpg");
   background-position: center;
   background-size: cover;
 }
@@ -437,18 +436,19 @@ margin: 10px;
   background-position: center;
   background-size: cover;
 }
-#sectArticle article .carteArticle div:nth-child(3) {
+.divTitre{
   width: 23vw;
   height: 15vh;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
-#sectArticle article .carteArticle div:nth-child(3) p {
+.divTitre p {
   color: whitesmoke;
   font-family: 'Raleway', sans-serif;
-  font-size: 4vmin;
+  font-size: 2.5vmin;
+  text-align: center;
 }
 @media(max-width:800px){
   #slider {

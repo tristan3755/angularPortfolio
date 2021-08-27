@@ -9,7 +9,7 @@ const mimetypes={
 
 const sauvegarde=multer.diskStorage({
     destination:(req,file,callback)=>{
-        callback(null,'imagesProfils')
+        callback(null,'images')
     },
     filename:(req,file,callback)=>{
         let nom=file.originalname.split(' ').join('_')

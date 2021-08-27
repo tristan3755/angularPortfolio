@@ -18,7 +18,6 @@ app.use(cors())
 app.use('/users',require('./route/users.js'))
 app.use('/redaction',require('./route/articles.js'))
 app.use('/images',express.static(path.join(__dirname,'images')))
-app.use('/imagesProfils',express.static(path.join(__dirname,'imagesProfils')))
 app.listen(3000)
 
 

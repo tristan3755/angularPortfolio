@@ -1,0 +1,21 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    padding: 0;
+    margin: 0;
+}
+#gridCategorie{
+    width: 100%;
+    min-height: 100vh;
+    background-color:black;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 2px;
+}
+.blocArticle{
+    height: 50vh;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}

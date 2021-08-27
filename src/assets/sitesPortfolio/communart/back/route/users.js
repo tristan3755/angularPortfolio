@@ -4,6 +4,9 @@ const router=express.Router()
 const bcrypt=require('bcryptjs')
 const usersSchema=require('../models/users.js')
 const multer=require('../middleware/multerConfigProfils.js')
+const auth=require('../middleware/auth.js')
+const path=require('path')
+const fs=require('fs')
 
 router.post('/inscription',multer,(req,res)=>{
    bcrypt.hash(req.body.password,10)
@@ -11,7 +14,7 @@ router.post('/inscription',multer,(req,res)=>{
        const newUser= new usersSchema({
            password:hash,
            mailUsers:req.body.mailUsers,
-           image:`${req.protocol}://${req.get('host')}/imageProfils/${req.file.filename}`
+           image:`${req.protocol}://${req.get('host')}/images/${req.file.filename}`
        })
       
        newUser.save((err,data)=>{
@@ -22,9 +25,7 @@ router.post('/inscription',multer,(req,res)=>{
             res.status(500).json({code:500,message:'problème',utilisateurAjoutéEchec:err})
             }
        })
-    
-   }
-   )
+   })
 })
 router.post('/connexion',(req,res)=>{
     usersSchema.findOne({mailUsers:req.body.mailUsers })
@@ -45,6 +46,20 @@ router.post('/connexion',(req,res)=>{
 
             })
         })
+    })
+})
+
+router.get('/usersCo/:_id',auth,multer,(req,res)=>{
+    usersSchema.findOne({_id:req.params._id})
+    .then(user=>{
+        if(!user){
+            res.status(401).json({code:401,message:"problême chargement des utilisateurs"})
+        }else{
+            res.send(user)
+        }
+    })
+    .catch(error=>{
+        res.send(error).status(500)
     })
 })
 

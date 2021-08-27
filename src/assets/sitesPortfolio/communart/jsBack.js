@@ -1,6 +1,7 @@
 let token = ""
 let userId = ""
 let idArticle=""
+let userImage=""
 
 /*connexion*/
 
@@ -19,6 +20,7 @@ let boutonCoBack=document.querySelector('.boutonCoFormulaire')
 boutonCoBack.addEventListener('click',()=>{
 connexion()
  console.log('click')   
+ 
 })
 
 
@@ -72,6 +74,7 @@ monBlocCo.appendChild(blocErreur)
         }
         gestion.addEventListener('click',()=>{
             document.getElementById('dashBoard').style.display='flex'
+ 
                 })
                 document.getElementById('gestionConnect').addEventListener('click',()=>{
                     document.getElementById('dashBoard').style.display='flex'
@@ -129,6 +132,20 @@ if(inputPassword.value==inputPasswordVerif.value){
 })
 
 /*post article*/
+document.querySelector('#dashBoard div:nth-child(1)').addEventListener('click',()=>{
+    imageArticle.files[0]==''
+    let urlRecupUser="http://localhost:3000/users/usersCo/"
+
+    fetch(urlRecupUser+userId,{method:'GET',headers:{"Content-Type": "application/json; charset=UTF-8", 
+    Authorization: "Bearer" + " " + token,}})
+    .then(res=>res.json())
+    .then(res=>{
+        console.log(res)
+        userImage=res.image
+        console.log(res.image)
+    })
+
+})
 
 let idUser=document.getElementById('idUser')
 let urlPostArticle='http://localhost:3000/redaction/article/add'
@@ -136,12 +153,11 @@ let urlPostArticle='http://localhost:3000/redaction/article/add'
 let boutonFormAjout=document.getElementById('boutonFormAjout')
 boutonFormAjout.style.border="none"
 
-
-
 boutonFormAjout.addEventListener('click',(e)=>{
     e.preventDefault()
     console.log(userId)
     idUser.value=userId
+    console.log(userImage)
    const formData=new FormData()
    formData.append('titre',titre.value)
    formData.append('text',text.value)
@@ -149,6 +165,7 @@ boutonFormAjout.addEventListener('click',(e)=>{
    formData.append('auteur',auteur.value)
    formData.append('imageArticle',imageArticle.files[0])
    formData.append('idUser',idUser.value=userId)
+   formData.append('idUserImage',idUserImage.value=userImage)
 
    if(titre.value!==''&&text.value!==''&&categorie.value!==''&&auteur.value!==''){
    fetch(urlPostArticle,{method:'POST',body:formData,headers: {
@@ -161,7 +178,7 @@ boutonFormAjout.addEventListener('click',(e)=>{
            console.log(res.code)
        }else{
            console.log('no problemo')
-           document.getElementById('formAjout').style.display='none'
+          document.getElementById('formAjout').style.display='none'
        }
    })
 }else{
@@ -174,9 +191,7 @@ boutonFormAjout.addEventListener('click',(e)=>{
      document.getElementById('formAjout').appendChild(blocAjoutError)
 }
 })
-document.querySelector('#dashBoard div:nth-child(1)').addEventListener('click',()=>{
-    imageArticle.files[0]==''
-})
+
 
 /*get modif article*/
 
@@ -448,9 +463,8 @@ croixSupp.addEventListener('click',()=>{
 
 let urlGetAll='http://localhost:3000/redaction/article'
 let sliderArticle=document.getElementById('slider')
-
 fetch(urlGetAll,{method:'GET',headers:{"Content-Type": "application/json; charset=UTF-8"}})
-.then((res=>res.json()))
+.then((res)=>res.json())
 .then((res)=>{
     console.log(res)
 
@@ -475,15 +489,27 @@ let date1=dateArticle[0]
 
 let date2=date1.split('-')
 
-
 let dateFinie=date2[2]+'/'+date2[1]+'/'+date2[0]
 
 carteArticleHeadDate.innerHTML=dateFinie
 
+let carteArticleHeadImg=document.createElement('div')
+carteArticleHeadImg.classList='carteArticleHeadImg'
+carteArticleHeadImg.style.backgroundImage='url('+res[i].idUserImage+')'
+
+let titreCarte=document.createElement('div')
+titreCarte.classList='divTitre'
+
+
+let titreCarteP=document.createElement('p')
+titreCarteP.innerHTML=res[i].titre
+carteArticleHead.appendChild(carteArticleHeadImg)
+
 carteArticleHead.appendChild(carteArticleHeadDate)
 
 carteArticle.appendChild(carteImage)
-
+titreCarte.appendChild(titreCarteP)
+carteArticle.appendChild(titreCarte)
 sliderArticle.appendChild(carteArticle)
 }
 })

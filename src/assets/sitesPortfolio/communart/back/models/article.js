@@ -23,6 +23,10 @@ const articleSchema=mongoose.Schema({
     idUser:{
         type:String,
         require:true,  
+    },
+    idUserImage:{
+        type:String,
+        require:true,  
     }
 },{timestamps:true})
 
