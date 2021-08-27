@@ -8,14 +8,39 @@ body{
 #gridCategorie{
     width: 100%;
     min-height: 100vh;
-    background-color:black;
+    background-color:#1E272E;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 2px;
+  
 }
 .blocArticle{
     height: 50vh;
-    background-position: center;
+    background-position: top;
     background-size: cover;
     position: relative;
+    transition: ease-in-out 1s;
+}
+.blocArticle:hover{
+    cursor: pointer;
+    background-position: bottom;
+}
+.titre{
+    position:absolute;
+    color: white;
+    font-size: 2.5vmin;
+    font-family: 'Playfair Display', serif;
+    bottom: 20px;
+    left: 20px;
+    z-index: 1;
+}
+.blocFiltre{
+    position: absolute;
+    content: '';
+    object-fit: cover;
+    width: 100%;
+    height: 30%;
+    background-color: black;
+    opacity: 0.6;
+    bottom: 0;
 }
