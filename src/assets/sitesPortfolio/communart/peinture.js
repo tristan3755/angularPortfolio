@@ -43,6 +43,43 @@ text=res[i].text
 
 console.log(titre,auteur,idUserImage,imageArticle,text)
 
+let ficheArticle=document.createElement('article')
+ficheArticle.classList='ficheArticle'
+ficheArticle.style.display='flex'
+
+let imageFiche=document.createElement('div')
+imageFiche.classList='imageFiche'
+imageFiche.style.backgroundImage='url('+imageArticle+')'
+
+let voileFiche=document.createElement('div')
+voileFiche.classList="voileFiche"
+
+imageFiche.appendChild(voileFiche)
+
+let titreFiche=document.createElement('p')
+titreFiche.classList="titreFiche"
+titreFiche.innerHTML=titre
+
+imageFiche.appendChild(titreFiche)
+
+
+let auteurFiche=document.createElement('p')
+auteurFiche.classList="auteurFiche"
+auteurFiche.innerHTML=auteur
+
+imageFiche.appendChild(auteurFiche)
+
+
+ficheArticle.appendChild(imageFiche)
+
+
+let textFiche=document.createElement('p')
+textFiche.classList="textFiche"
+textFiche.innerHTML=text
+
+ficheArticle.appendChild(textFiche)
+monGrid.appendChild(ficheArticle)
+
 })
 
 }
