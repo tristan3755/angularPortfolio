@@ -59,7 +59,7 @@ section:nth-child(1) article:nth-child(2) {
   opacity: 0.8;
 }
 .c {
-  transform: translateX(calc(var(--x) / 155)) translateY(calc(var(--y) / 205));
+  transform: translateX(calc(var(--x)/20)) translateY(calc(var(--y) / 100));
 }
 section:nth-child(1) header {
   height: 10vh;

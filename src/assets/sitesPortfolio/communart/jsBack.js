@@ -22,8 +22,6 @@ connexion()
  console.log('click')   
  
 })
-
-
 function connexion(){
     
     let mesValeursCo={
