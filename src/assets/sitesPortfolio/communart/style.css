@@ -96,7 +96,7 @@ section:nth-child(1) header div a:hover {
   cursor: pointer;
 }
 section:nth-child(1) header div:hover {
-  background: linear-gradient(109.79deg, #833ab4 0%, #fd1d1d 87.58%);
+  background-color: #F53B57;
   width: 150px;
 }
 @media(max-width:500px){

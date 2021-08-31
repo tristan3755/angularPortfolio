@@ -76,7 +76,7 @@ body::-webkit-scrollbar-thumb{
 }
 .imageFiche{
     width: 100%;
-    min-height: 70vh;
+    min-height: 100vh;
     background-position: center;
     background-size: cover;
     position: relative;
@@ -85,6 +85,7 @@ body::-webkit-scrollbar-thumb{
     align-items: center;
     justify-content: center;
     margin-top: 0;
+    background-attachment: fixed;
 }
 .voileFiche{
     position: absolute;
@@ -113,8 +114,42 @@ body::-webkit-scrollbar-thumb{
     font-size: 2.5vmin;
     font-family: 'Source Serif Pro', serif;
     width: 60%;
-    height: 100vh;
+    min-height: 70vh;
     margin-top: 200px;
     line-height: 30px;
     text-align: justify;
+    margin-bottom: 100px;
+}
+.retour{
+    width: 100px;
+    min-height: 100px;
+    align-self: flex-end;
+    margin-right: 15px;
+    transition:ease-in-out 1s;
+}
+.retour:hover{
+    cursor: pointer;
+    transform:scale(1.1)
+}
+.blocAuteurArticle{
+    width: 400px;
+    max-width: 100%;
+    min-height: 200px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.textAuteur{
+    color: black;
+    font-size: 2.5vmin;
+    font-family: 'Raleway', sans-serif;
+    letter-spacing: 5px;
+}
+.imageAuteur{
+    width: 100px;
+    min-height: 100px;
+    background-size: cover;
+    background-position:center;
+    border-radius: 50%;
 }
