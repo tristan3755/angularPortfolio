@@ -1,5 +1,5 @@
 const urlCategorie='http://localhost:3000/redaction/categories/'
-const peinture='Peinture'
+const sculpture='Sculpture'
 
 let titre=""
 let auteur=""
@@ -9,7 +9,7 @@ let text=""
 
 let monGrid=document.getElementById('gridCategorie')
 
-fetch(urlCategorie+peinture,{method:'GET',headers:{"Content-Type": "application/json; charset=UTF-8"}})
+fetch(urlCategorie+sculpture,{method:'GET',headers:{"Content-Type": "application/json; charset=UTF-8"}})
 .then(res=>res.json())
 .then(res=>{
 console.log(res)    

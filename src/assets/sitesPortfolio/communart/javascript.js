@@ -255,10 +255,7 @@ boutonModifArticle.addEventListener('click',()=>{
 
 croixPreModif.addEventListener('click',()=>{
   articleModifPage.style.display='none'
-  
 })
-
-
 document.getElementById('titre').addEventListener("click", () => {
   document.getElementById('titre').style.width = "500px";
 });
@@ -269,4 +266,20 @@ document.getElementById('titre').addEventListener("click", () => {
 let categoriePeinture=document.querySelector('#grid article:nth-child(1) div:nth-child(1)')
 categoriePeinture.addEventListener('click',()=>{
 window.open('http://localhost:4200/assets/sitesPortfolio/communart/peinture.html')
+})
+let categorieSculpture=document.querySelector('#grid article:nth-child(1) div:nth-child(2)')
+categorieSculpture.addEventListener('click',()=>{
+window.open('http://localhost:4200/assets/sitesPortfolio/communart/sculpture.html')
+})
+let categorieArchitecture=document.querySelector('#grid article:nth-child(2) div:nth-child(1)')
+categorieArchitecture.addEventListener('click',()=>{
+window.open('http://localhost:4200/assets/sitesPortfolio/communart/architecture.html')
+})
+let categorieArtscenique=document.querySelector('#grid article:nth-child(2) div:nth-child(2)')
+categorieArtscenique.addEventListener('click',()=>{
+window.open('http://localhost:4200/assets/sitesPortfolio/communart/artScenique.html')
+})
+let categorieArtisanat=document.querySelector('#grid article:nth-child(3) div:nth-child(1)')
+categorieArtisanat.addEventListener('click',()=>{
+window.open('http://localhost:4200/assets/sitesPortfolio/communart/artisanat.html')
 })
