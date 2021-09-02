@@ -610,8 +610,6 @@ ficheArticle.appendChild(blocAuteurArticle)
 blocAuteurArticle.appendChild(imageAuteur)
 ficheArticle.appendChild(retour)
 
-
-
 })
 
 }

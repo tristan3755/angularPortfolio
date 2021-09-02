@@ -50,7 +50,7 @@ router.get('/article/:titre', (req, res) => {
         })
 })
 router.get('/article',(req, res) => {
-    articleSchema.find({})
+    articleSchema.find({}, null, {sort: {createdAt: -1}})
         .then(article => {
             if (!article) {
                 res.status(401).json({

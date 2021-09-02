@@ -102,6 +102,7 @@ body::-webkit-scrollbar-thumb{
     z-index: 2;
     font-family: 'Lobster', cursive;
     letter-spacing: 5px;
+    text-align: center;
 }
 .auteurFiche{
     color: white;
@@ -109,6 +110,7 @@ body::-webkit-scrollbar-thumb{
     z-index: 2;
     font-family: 'Raleway', sans-serif;
     letter-spacing: 5px;
+    text-align: center;
 }
 .textFiche{
     display: flex;
