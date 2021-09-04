@@ -14,7 +14,6 @@ router.post('/article/add',auth,multer,(req, res) => {
         titre: req.body.titre,
         text: req.body.text,
         idUser:req.body.idUser,
-       /*idUserImage:`${req.protocol}://${req.get('host')}/images/${req.file.filename}`,*/
         idUserImage:req.body.idUserImage,
         categorie:req.body.categorie,
         auteur:req.body.auteur,
@@ -103,6 +102,37 @@ router.delete('/article/supp/:_id',auth,multer,(req, res) => {
         })
     })
 })
+
+/*suppJusteImage*/
+router.delete('/article/suppImage/:_id',auth,multer,(req, res) => {
+    articleSchema.findOne({
+        _id: req.params._id
+    }).then(imageAsupp=>{
+        const imageFichier=imageAsupp.imageArticle.split('/images/')[1]
+        fs.unlink(`images/${imageFichier}`,()=>{
+            articleSchema.deleteOne({
+                imageArticle: req.params.imageArticle
+            })
+            .then(articleImageModifSupp => {
+                if (!articleImageModifSupp) {
+                    res.status(401).json({
+                        error: "aucun article trouvé avec ce nom"
+                    })
+                } else {
+                    res.send(articleImageModifSupp)
+                }
+            }).catch(error=>{
+                res.send(error).status(500)
+            })
+        })
+})
+.catch(error=>{
+    res.send(error).status(500)
+})
+})
+/*suppJusteImage*/
+
+
 router.put('/article/modif/:_id',auth,multer,(req, res) => {
 let article=({})
     if(req.file){
@@ -157,6 +187,4 @@ articleSchema.find({
     res.send(error).status(500)
 })
 })
-
-
 module.exports = router

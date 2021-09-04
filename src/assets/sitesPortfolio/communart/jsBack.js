@@ -197,9 +197,9 @@ let urlGetarticleModif="http://localhost:3000/redaction/article/id/"
 let urlModifArticle="http://localhost:3000/redaction/article/modif/"
 let articleModifPage=document.getElementById('articleModif')
 let monBlocModif=document.createElement('div')
-monBlocModif.classList='blocImageModif'
-articleModifPage.appendChild(monBlocModif)
-boutonModifArticle.addEventListener('click',()=>{
+    monBlocModif.classList='blocImageModif'
+    articleModifPage.appendChild(monBlocModif)
+    boutonModifArticle.addEventListener('click',()=>{
     monBlocModif.innerHTML=''
     fetch(urlGetarticleModif+userId,{method:'GET',headers: {
         Authorization: "Bearer" + " " + token,
@@ -289,6 +289,11 @@ blocImage.addEventListener('click',()=>{
     inputFichierModif.id="imageArticle"
     inputFichierModif.accept="image/png, image/jpeg,image/jpg"
     inputFichierModif.label='votre image d\'article'
+    inputFichierModif.addEventListener('click',()=>{
+        console.log('click modif')
+        console.log(inputFichierModif.value)
+    })
+
     /*effet input*/
 
     inputTitreModif.addEventListener("click",()=>{
@@ -342,7 +347,19 @@ blocImage.addEventListener('click',()=>{
         formulaireModif.appendChild(blocModifError)
     }
 console.log(inputTitreModif.value)
-    })
+console.log(inputFichierModif.value)
+if(inputFichierModif.value!==''){
+    console.log('clickImageModif')
+    console.log(idArticle+'click modif supp image')
+    let urlModifSuppImage='http://localhost:3000/redaction/article/suppImage/'
+
+    fetch(urlModifSuppImage+idArticle,{method:'DELETE',headers: {
+        Authorization: "Bearer" + " " + token,
+        "Content-Type": "application/json; charset=UTF-8",
+      }})
+      .then(res=>res.json())
+}
+})
 
 /*svg croix*/
 
@@ -561,7 +578,6 @@ retourSvg.setAttribute('width','100%')
 retourSvg.setAttribute('height','100%')
 retourSvg.setAttribute('viewBox','0 0 561 472')
 retourSvg.setAttribute('fill','none')
-
 let path1=document.createElementNS('http://www.w3.org/2000/svg','path')
 path1.setAttribute('d','M147.568 235.5L208.921 296.041L114.669 235.5L208.921 174.959L147.568 235.5Z')
 path1.setAttribute('fill','black')
