@@ -1,0 +1,256 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+*{
+    box-sizing: border-box;
+}
+#app{
+    min-height: 100vh;
+    width: 100%;
+    background-image: url('./images/FondWeather.jpg');
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#titre{
+    width: 400px;
+    max-width: 90%;
+    height: 400px;
+}
+#bulle1,#bulle2,#bulle3{
+    background-color: white;
+    position: absolute;
+    border-radius: 100%;
+    opacity: 0.7;
+}
+#bulle1{
+    top: 30vh;
+    left: 10vw;
+    width: 100px;
+    height: 100px;
+    animation: moveBulle linear infinite 5s;
+}
+#bulle2{
+    top: 60vh;
+    left: 30vw;
+    width: 70px;
+    height: 70px;
+    animation: moveBulle linear infinite 15s;
+}
+#bulle3{
+    top: 60vh;
+    right: 30vw;
+    width: 30px;
+    height: 30px;
+    animation: moveBullePetite linear infinite 12s;
+}
+@media(max-width:500px){
+    #bulle1{
+    
+        width: 50px;
+        height: 50px;
+       
+    }
+    #bulle2{
+   
+        width: 30px;
+        height: 30px;
+       
+    }
+    #bulle3{
+     
+        width: 20px;
+        height: 20px;
+       
+    }
+}
+
+@keyframes moveBulle{
+   0%{
+    transform:translateX(0px);
+    transform: translateY(0px);
+    }
+    25%{
+        transform:translateX(20px);
+    }50%{
+        transform:translateX(-50px);
+    }75%{
+    transform: translateY(20px);
+    }
+    100%{
+        transform:translateX(0px);
+        transform: translateY(0px);
+    }
+}
+@keyframes moveBullePetite{
+    0%{
+     transform:translateX(0px);
+     transform: translateY(0px);
+     background-color: white;
+     }
+     25%{
+         transform:translateX(20px);
+         background-color: #C34F8D;
+     }50%{
+         transform:translateX(-50px);
+         background-color: #3498DB;
+     }75%{
+     transform: translateY(20px);
+     background-color: #2C3E50;
+     }
+     100%{
+         transform:translateX(0px);
+         transform: translateY(0px);
+         background-color: white;
+     }
+ }
+ #button{
+     position: absolute;
+     top: 10px;
+     right: 10px;
+     width: 80px;
+     height: 80px;
+     transition: ease-in-out 0.5s;
+     z-index: 2;
+ }
+ #button:hover{
+     transform: scale(1.05);
+     cursor: pointer;
+ }
+ #buttonFerme{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 80px;
+    height: 80px;
+    transition: ease-in-out 0.5s;
+    z-index: 2; 
+ }
+ #buttonFerme:hover{
+    transform: scale(1.05);
+    cursor: pointer;
+}
+ #dadhboard{
+     width: 100%;
+     height: 100vh;
+     background-color: #1e272e;
+     position: fixed;
+     z-index: 1;
+     animation: apparition forwards 2s;
+     top: 0;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
+ }
+ @keyframes apparition {
+     from{
+        height: 0vh;
+     }to{
+        height: 100vh;
+     }
+ }
+ #rendu{
+min-height: 60vh;
+width: 100%;
+display: flex;
+flex-direction: column;
+justify-content: space-evenly;
+align-items: center;
+ }
+ #renduMeteo{
+     min-height: 30vh;
+     width: 30%;
+     min-width: 300px;
+     background-position: center;
+     background-size: contain;
+     background-repeat: no-repeat;
+     display: flex;
+     flex-direction: row;
+     align-items: center;
+     justify-content: space-evenly;
+     position: relative;
+     border-radius: 5px;
+     border: 2px solid #f53b57;
+     animation: app forwards 2.5s;
+ }
+ @keyframes app {
+     from{
+opacity: 0;
+     }to{
+opacity: 1;
+     }
+ }
+ .input{
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: space-evenly;
+     min-height: 30vh;
+     width: 250px;
+     position: relative;
+ }
+ .input input{
+     width: 100%;
+     height: 40px;
+     background-color: transparent;
+     border-color: #f53b57;
+     border-top: none;
+     border-left: none;
+     border-right: none;
+     color: white;
+ }
+ .input label{
+ color:white;
+ font-family: 'Raleway', sans-serif;
+}
+#renduMeteo1,#renduMeteo2{
+height: 100%;
+width: 50%;
+position: relative;
+display:flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+}
+#image{
+    position: relative;
+    height: 50%;
+    width: 50%; 
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;  
+}
+.pMeteo,.pTemp{
+    color:white;
+    font-family: 'Raleway', sans-serif;
+    text-align: center;
+}
+.pTemp{
+    font-size: 5vmin;
+    color: #f53b57;
+    font-weight: bold;
+}
+.bouton{
+width: 150px;
+height: 40px;
+border-radius: 10px;
+background-color: transparent;
+border:solid 2px #f53b57;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+color: white;
+font-family: 'Raleway', sans-serif;
+transition: ease-in-out 0.5s;
+}
+.bouton:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+    background-color: #f53b57;
+}
