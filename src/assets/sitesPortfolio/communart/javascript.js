@@ -263,21 +263,21 @@ document.getElementById('titre').addEventListener("click", () => {
 /*click catégorie*/
 let categoriePeinture=document.querySelector('#grid article:nth-child(1) div:nth-child(1)')
 categoriePeinture.addEventListener('click',()=>{
-window.open('http://localhost:4200/assets/sitesPortfolio/communart/peinture.html')
+window.open('./peinture.html')
 })
 let categorieSculpture=document.querySelector('#grid article:nth-child(1) div:nth-child(2)')
 categorieSculpture.addEventListener('click',()=>{
-window.open('http://localhost:4200/assets/sitesPortfolio/communart/sculpture.html')
+window.open('./sculpture.html')
 })
 let categorieArchitecture=document.querySelector('#grid article:nth-child(2) div:nth-child(1)')
 categorieArchitecture.addEventListener('click',()=>{
-window.open('http://localhost:4200/assets/sitesPortfolio/communart/architecture.html')
+window.open('./architecture.html')
 })
 let categorieArtscenique=document.querySelector('#grid article:nth-child(2) div:nth-child(2)')
 categorieArtscenique.addEventListener('click',()=>{
-window.open('http://localhost:4200/assets/sitesPortfolio/communart/artScenique.html')
+window.open('./artScenique.html')
 })
 let categorieArtisanat=document.querySelector('#grid article:nth-child(3) div:nth-child(1)')
 categorieArtisanat.addEventListener('click',()=>{
-window.open('http://localhost:4200/assets/sitesPortfolio/communart/artisanat.html')
+window.open('./artisanat.html')
 })

@@ -15,7 +15,7 @@ return this.toggle
 },
 getAlert(){
 console.log(this.villeMeteo)
-let url="http://api.openweathermap.org/data/2.5/weather?q="+this.villeMeteo+"&appid=28da2799b73f06513b062e2b6178e72d&units=metric"
+let url="https://api.openweathermap.org/data/2.5/weather?q="+this.villeMeteo+"&appid=28da2799b73f06513b062e2b6178e72d&units=metric"
 console.log(url)
 let divImage=document.getElementById('image')
 divImage.style.backgroundImage='url("")'
@@ -26,7 +26,7 @@ fetch(url)
 .then(res=>{
 console.log(res)
 console.log(res.weather[0].icon)
-divImage.style.backgroundImage='url('+"http://openweathermap.org/img/w/"+res.weather[0].icon+".png"+')'
+divImage.style.backgroundImage='url('+"https://openweathermap.org/img/w/"+res.weather[0].icon+".png"+')'
 document.querySelector('.pMeteo').innerHTML=res.weather[0].main +" , "+ res.weather[0].description
 document.querySelector('.pTemp').innerHTML=res.main.temp+"°c"
 })

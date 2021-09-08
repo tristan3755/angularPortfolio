@@ -219,8 +219,8 @@ justify-content: center;
 }
 #image{
     position: relative;
-    height: 50%;
-    width: 50%; 
+    height:  80px;
+    width:  80px; 
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;  
