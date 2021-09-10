@@ -1,4 +1,4 @@
-const urlCategorie='http://localhost:3000/redaction/categories/'
+const urlCategorie='https://mysterious-mesa-82638.herokuapp.com/redaction/categories/'
 const sculpture='Sculpture'
 
 let titre=""

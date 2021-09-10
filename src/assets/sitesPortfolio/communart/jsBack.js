@@ -28,7 +28,7 @@ function connexion(){
 mailUsers:coMail.value,
 password:coPassword.value,
 }
-    let urlCo="http://localhost:3000/users/connexion"
+    let urlCo="https://mysterious-mesa-82638.herokuapp.com/users/connexion"
     fetch(urlCo,{method:'POST',headers:{"Content-Type": "application/json; charset=UTF-8",},body:JSON.stringify(mesValeursCo)})
     .then((res)=>res.json())
     .then((res)=>{
@@ -90,7 +90,7 @@ monBlocCo.appendChild(blocErreur)
     .catch()
 }
 /* inscription*/
-let urlInscription='http://localhost:3000/users/inscription'
+let urlInscription='https://mysterious-mesa-82638.herokuapp.com/users/inscription'
 
 validation.addEventListener('click',(e)=>{
     e.preventDefault()
@@ -102,10 +102,10 @@ validation.addEventListener('click',(e)=>{
     formData.append('image',image.files[0])
 
 if(inputPassword.value==inputPasswordVerif.value){
-   fetch(urlInscription,{method:'post',body:formData})
+   fetch(urlInscription,{method:'post', body:formData})
     .then((res)=>res.json())
     .then((res)=>{
-        if(res.code!==200){
+        if(res.code==500){
             let error=document.createElement('p')
             error.innerHTML='utilisateur existe déja'
             error.style.position="absolute"
@@ -114,11 +114,14 @@ if(inputPassword.value==inputPasswordVerif.value){
             monBlocInscription.appendChild(error)
 
         }else{
+          
             monBlocInscription.style.display='none'
             monBlocCo.style.display='flex'
         }
     })
-    .catch()
+    .catch(err=>{
+        console.log(err)
+    })
 }else{
     let errorPass=document.createElement('p')
     errorPass.innerHTML='mauvaise concordance des mots de passe'
@@ -132,7 +135,7 @@ if(inputPassword.value==inputPasswordVerif.value){
 /*post article*/
 document.querySelector('#dashBoard div:nth-child(1)').addEventListener('click',()=>{
     imageArticle.files[0]==''
-    let urlRecupUser="http://localhost:3000/users/usersCo/"
+    let urlRecupUser="https://mysterious-mesa-82638.herokuapp.com/users/usersCo/"
 
     fetch(urlRecupUser+userId,{method:'GET',headers:{"Content-Type": "application/json; charset=UTF-8", 
     Authorization: "Bearer" + " " + token,}})
@@ -146,7 +149,7 @@ document.querySelector('#dashBoard div:nth-child(1)').addEventListener('click',(
 })
 
 let idUser=document.getElementById('idUser')
-let urlPostArticle='http://localhost:3000/redaction/article/add'
+let urlPostArticle='https://mysterious-mesa-82638.herokuapp.com/redaction/article/add'
 
 let boutonFormAjout=document.getElementById('boutonFormAjout')
 boutonFormAjout.style.border="none"
@@ -193,8 +196,8 @@ boutonFormAjout.addEventListener('click',(e)=>{
 
 /*get modif article*/
 
-let urlGetarticleModif="http://localhost:3000/redaction/article/id/"
-let urlModifArticle="http://localhost:3000/redaction/article/modif/"
+let urlGetarticleModif="https://mysterious-mesa-82638.herokuapp.com/redaction/article/id/"
+let urlModifArticle="https://mysterious-mesa-82638.herokuapp.com/redaction/article/modif/"
 let articleModifPage=document.getElementById('articleModif')
 let monBlocModif=document.createElement('div')
     monBlocModif.classList='blocImageModif'
@@ -351,7 +354,7 @@ console.log(inputFichierModif.value)
 if(inputFichierModif.value!==''){
     console.log('clickImageModif')
     console.log(idArticle+'click modif supp image')
-    let urlModifSuppImage='http://localhost:3000/redaction/article/suppImage/'
+    let urlModifSuppImage='https://mysterious-mesa-82638.herokuapp.com/redaction/article/suppImage/'
 
     fetch(urlModifSuppImage+idArticle,{method:'DELETE',headers: {
         Authorization: "Bearer" + " " + token,
@@ -433,7 +436,7 @@ console.log(userId)
 
 /***************************************************PreSub******************************************************/
 
-let urlSupp='http://localhost:3000/redaction/article/supp/'
+let urlSupp='https://mysterious-mesa-82638.herokuapp.com/redaction/article/supp/'
 
 let articleSuppPage=document.getElementById('articleSupp')
 let suppImage=document.createElement('div')
@@ -476,7 +479,7 @@ croixSupp.addEventListener('click',()=>{
 })
 /*******************************************getAll*****************************************************/
 
-let urlGetAll='http://localhost:3000/redaction/article'
+let urlGetAll='https://mysterious-mesa-82638.herokuapp.com/redaction/article'
 let sliderArticle=document.getElementById('slider')
 fetch(urlGetAll,{method:'GET',headers:{"Content-Type": "application/json; charset=UTF-8"}})
 .then((res)=>res.json())

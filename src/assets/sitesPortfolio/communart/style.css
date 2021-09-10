@@ -1125,7 +1125,11 @@ width: 0px;
   margin-top: 0;
   background-attachment: fixed;
 }
-
+@media (max-width:500px){
+  .imageFiche{
+    background-attachment: scroll; 
+  }
+}
 .voileFiche{
   position: absolute;
   content: '';
