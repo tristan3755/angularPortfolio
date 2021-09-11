@@ -1166,7 +1166,12 @@ width: 0px;
   text-align: justify;
   margin-bottom: 100px;
 }
-
+@media (max-width:600px){
+  .textFiche{
+      font-size: 3.5vmin;
+      line-height: 20px;
+  }
+}
 .retour{
   position: relative;
   width: 70px;
