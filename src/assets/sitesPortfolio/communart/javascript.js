@@ -281,3 +281,17 @@ let categorieArtisanat=document.querySelector('#grid article:nth-child(3) div:nt
 categorieArtisanat.addEventListener('click',()=>{
 window.open('./artisanat.html')
 })
+/****************************chargement*************************/
+
+let maPageChargement=document.querySelector('.chargement')
+let monBody=document.querySelector('body')
+
+window.addEventListener('load',()=>{
+maPageChargement.parentElement.removeChild(maPageChargement)
+monBody.style.overflowY='scroll'
+})
+/*alert*/
+ let fermeAlert=document.querySelector('.alert p:nth-child(2)')
+ fermeAlert.addEventListener('click',()=>{
+  document.querySelector('.alert').style.display="none"
+ })

@@ -153,6 +153,7 @@ let urlPostArticle='https://mysterious-mesa-82638.herokuapp.com/redaction/articl
 
 let boutonFormAjout=document.getElementById('boutonFormAjout')
 boutonFormAjout.style.border="none"
+boutonFormAjout.style.marginBottom="100px"
 
 boutonFormAjout.addEventListener('click',(e)=>{
     e.preventDefault()

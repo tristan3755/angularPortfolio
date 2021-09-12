@@ -123,6 +123,7 @@ console.log(date2)
 
 let dateFinie=date2[2]+'/'+date2[1]+'/'+date2[0]
 
+
 let textAuteur=document.createElement('p')
 textAuteur.innerHTML='article:'+ dateFinie
 textAuteur.classList="textAuteur"
